@@ -356,21 +356,73 @@
     background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
 }
 
-/* Responsive Design for Hero Section */
+/* Enhanced Mobile Responsive Design for Hero Section */
 @media (max-width: 768px) {
+    .hero-container {
+        padding: 0 15px;
+    }
+
     .hero-image-container {
-        height: 70vh;
-        min-height: 500px;
+        height: 65vh;
+        min-height: 450px;
         border-radius: 15px;
     }
     
     .hero-overlay {
-        padding: 40px 20px 30px;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+        margin-bottom: 25px;
     }
     
     .hero-browse-btn {
         padding: 12px 30px;
         font-size: 1rem;
+        width: auto;
+        display: inline-block;
+    }
+
+    .features {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .feature {
+        text-align: center;
+        padding: 25px 20px;
+    }
+
+    .feature i {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    .feature h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .category-card {
+        height: 200px;
+    }
+
+    .category-card h3 {
+        font-size: 1.2rem;
     }
 }
 
@@ -380,18 +432,59 @@
     }
     
     .hero-image-container {
-        height: 60vh;
-        min-height: 400px;
+        height: 55vh;
+        min-height: 350px;
         border-radius: 10px;
     }
     
     .hero-overlay {
-        padding: 30px 15px 25px;
+        padding: 25px 15px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .hero-text p {
+        font-size: 0.9rem;
     }
     
     .hero-browse-btn {
-        padding: 10px 25px;
+        padding: 12px 25px;
         font-size: 0.9rem;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .features {
+        padding: 0 10px;
+    }
+
+    .feature {
+        padding: 20px 15px;
+    }
+
+    .feature i {
+        font-size: 2rem;
+    }
+
+    .feature h3 {
+        font-size: 1.2rem;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .category-card {
+        height: 180px;
+    }
+
+    .category-card h3 {
+        font-size: 1.1rem;
     }
 }
 

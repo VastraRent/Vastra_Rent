@@ -574,8 +574,25 @@
     margin-top: 30px;
 }
 
-/* Responsive Design */
+/* Enhanced Mobile Responsive Design */
 @media (max-width: 768px) {
+    .payment-container {
+        padding: 15px;
+    }
+
+    .payment-header {
+        padding: 25px 20px;
+        margin-bottom: 25px;
+    }
+
+    .payment-header h1 {
+        font-size: 2rem;
+    }
+
+    .payment-header p {
+        font-size: 1rem;
+    }
+
     .payment-content {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -584,28 +601,123 @@
     .payment-item-display {
         flex-direction: column;
         text-align: center;
+        padding: 20px 15px;
     }
     
     .item-main-image {
-        width: 120px;
-        height: 120px;
-        margin: 0 auto;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 15px;
+    }
+
+    .item-details-info {
+        text-align: left;
+    }
+
+    .item-name {
+        font-size: 1.3rem;
+        text-align: center;
     }
     
     .rental-info-grid {
         grid-template-columns: 1fr;
+        gap: 10px;
     }
     
     .form-row {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
     
     .payment-actions {
         flex-direction: column;
+        gap: 15px;
+    }
+
+    .payment-actions .btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
     }
     
     .confirmation-actions {
         flex-direction: column;
+        gap: 15px;
+    }
+
+    .confirmation-actions .btn {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .modal-content {
+        margin: 10px;
+        padding: 25px 20px;
+        max-width: calc(100vw - 20px);
+    }
+
+    .confirmation-message h2 {
+        font-size: 1.5rem;
+    }
+
+    .confirmation-message i {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-container {
+        padding: 10px;
+    }
+
+    .payment-header {
+        padding: 20px 15px;
+    }
+
+    .payment-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .item-main-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .item-name {
+        font-size: 1.2rem;
+    }
+
+    .spec-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .price-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .rental-info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .payment-form {
+        padding: 20px 15px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .notification {
+        right: 10px;
+        left: 10px;
+        min-width: auto;
     }
 }
 
@@ -647,3 +759,1813 @@
     background: #17a2b8;
     color: white;
 }
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 300px;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: #28a745;
+    color: white;
+}
+
+.notification-error {
+    background: #dc3545;
+    color: white;
+}
+
+.notification-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
