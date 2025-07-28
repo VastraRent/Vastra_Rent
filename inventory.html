@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VASTRA RENT - Inventory</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/inventory.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="img/vrlogo.jpg" alt="VASTRA RENT Logo">
+                    <h1>VASTRA RENT</h1>
+                </a>
+            </div>
+            <div class="header-nav">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="inventory.html" class="active"><i class="fas fa-tshirt"></i> Inventory</a></li>
+                        <li><a href="perfect-for-you.html"><i class="fas fa-magic"></i> Perfect for You</a></li>
+                        <li><a href="rental-status.html"><i class="fas fa-clock"></i> Rental Status</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="profile-dropdown">
+                    <a href="#" class="profile-trigger">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="profile-menu">
+                        <div class="profile-header">
+                            <img src="https://via.placeholder.com/40x40?text=U" alt="Profile"
+                                class="profile-avatar-small">
+                            <div class="profile-info-small">
+                                <span class="profile-name-small">John Doe</span>
+                                <span class="profile-email-small">john@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-menu-items">
+                            <a href="profile.html" class="profile-menu-item">
+                                <i class="fas fa-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                            <a href="profile.html?section=rental-history" class="profile-menu-item">
+                                <i class="fas fa-history"></i>
+                                <span>Rental History</span>
+                            </a>
+                            <a href="profile.html?section=cart" class="profile-menu-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>My Cart</span>
+                                <span class="cart-badge" id="header-cart-count">0</span>
+                            </a>
+                            <a href="profile.html?section=wishlist" class="profile-menu-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Wishlist</span>
+                                <span class="wishlist-badge" id="header-wishlist-count">0</span>
+                            </a>
+                            <a href="profile.html?section=addresses" class="profile-menu-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Addresses</span>
+                            </a>
+                            <a href="profile.html?section=payment-methods" class="profile-menu-item">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Payment Methods</span>
+                            </a>
+                            <a href="profile.html?section=settings" class="profile-menu-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </div>
+                        <div class="profile-menu-footer">
+                            <a href="#" id="logout-btn" class="profile-menu-item logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="inventory-header">
+        <h1>Clothing Inventory</h1>
+
+        <!-- Move the search-filter section here, BEFORE the inventory-grid -->
+        <div class="search-filter">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search for items...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Filter System -->
+            <div class="filter-container">
+                <!-- Gender Filter -->
+                <div class="gender-filter">
+                    <label for="gender-select">Gender:</label>
+                    <select id="gender-select">
+                        <option value="all">All</option>
+                        <option value="men">Male</option>
+                        <option value="women">Female</option>
+                    </select>
+                </div>
+
+                <!-- Category Filter -->
+                <div class="category-filter">
+                    <label for="category-select">Category:</label>
+                    <select id="category-select">
+                        <option value="all">All Categories</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="inventory-grid" id="inventory-grid">
+        <!-- Items will be populated by JavaScript -->
+    </section>
+
+    <div id="rental-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Rent Item</h2>
+            <div id="rental-item-details">
+                <!-- Item details will be populated by JavaScript -->
+            </div>
+            <form id="rental-form">
+                <div class="form-group">
+                    <label for="rental-start-date">Start Date:</label>
+                    <input type="date" id="rental-start-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="rental-duration">Rental Duration:</label>
+                    <select id="rental-duration" required>
+                        <option value="1">1 Day</option>
+                        <option value="2">2 Days</option>
+                        <option value="3">3 Days</option>
+                        <option value="7">1 Week</option>
+                        <option value="14">2 Weeks</option>
+                        <option value="30">1 Month</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rental-notes">Special Instructions (Optional):</label>
+                    <textarea id="rental-notes"></textarea>
+                </div>
+                <div class="rental-summary">
+                    <h3>Rental Summary</h3>
+                    <p>Item: <span id="summary-item-name"></span></p>
+                    <p>Duration: <span id="summary-duration"></span></p>
+                    <p>Total Cost: <span id="summary-cost"></span></p>
+                </div>
+                <button type="submit" class="btn">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>VASTRA RENT</h3>
+                <p>Your premium clothing rental service for any occasion.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="rental-status.html">Rental Status</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Style City</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@vastrarent.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 VASTRA RENT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/shared-inventory.js"></script>
+    <script src="js/inventory.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+
+</html>

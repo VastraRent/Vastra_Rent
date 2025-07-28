@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Upload Test - VASTRA RENT</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile-animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .test-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #D76D77;
+            margin-bottom: 1rem;
+        }
+        
+        .avatar-section {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            border: 2px dashed #ddd;
+            border-radius: 12px;
+        }
+        
+        .profile-avatar {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .profile-avatar img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #D76D77;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-avatar img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(215, 109, 119, 0.3);
+        }
+        
+        .avatar-edit-btn {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #D76D77;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(215, 109, 119, 0.3);
+        }
+        
+        .avatar-edit-btn:hover {
+            background: #c55a64;
+            transform: scale(1.1) rotate(15deg);
+        }
+        
+        .form-avatar {
+            text-align: center;
+        }
+        
+        .form-avatar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ddd;
+            margin-bottom: 1rem;
+        }
+        
+        .change-photo-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        
+        .change-photo-btn:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+        
+        .test-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn.primary {
+            background: linear-gradient(135deg, #D76D77, #c55a64);
+            color: white;
+        }
+        
+        .btn.secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn.success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn.warning {
+            background: #ffc107;
+            color: #333;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .debug-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 1rem;
+        }
+        
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1 class="test-title">Avatar Upload Test</h1>
+            <p>Test the profile photo change functionality</p>
+        </div>
+
+        <div class="avatar-section">
+            <div class="profile-avatar">
+                <img id="profile-avatar" src="https://via.placeholder.com/120x120?text=User" alt="Profile Picture">
+                <button class="avatar-edit-btn" id="avatar-edit-btn">
+                    <i class="fas fa-camera"></i>
+                </button>
+            </div>
+            
+            <div class="form-avatar">
+                <img id="profile-form-avatar" src="https://via.placeholder.com/100x100?text=User" alt="Profile Photo">
+                <button type="button" class="change-photo-btn" id="change-photo-btn">
+                    <i class="fas fa-camera"></i>
+                    Change Photo
+                </button>
+            </div>
+        </div>
+
+        <div class="test-controls">
+            <button onclick="testAvatarUpload()" class="btn primary">
+                <i class="fas fa-upload"></i>
+                Test Upload
+            </button>
+            <button onclick="debugAvatarUpload()" class="btn secondary">
+                <i class="fas fa-bug"></i>
+                Debug Avatar
+            </button>
+            <button onclick="resetAvatar()" class="btn warning">
+                <i class="fas fa-undo"></i>
+                Reset Avatar
+            </button>
+            <button onclick="checkAvatarStorage()" class="btn success">
+                <i class="fas fa-database"></i>
+                Check Storage
+            </button>
+        </div>
+
+        <div id="status-display">
+            <div class="status info">Ready for testing</div>
+        </div>
+
+        <div id="debug-info" class="debug-info">
+Click "Debug Avatar" to see detailed information...
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/profile.js"></script>
+    <script>
+        // Test functions
+        function checkAvatarStorage() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+            const userData = JSON.parse(localStorage.getItem('userData')) || {};
+            
+            const info = {
+                currentUserAvatar: currentUser.avatar ? 'Set' : 'Not set',
+                userDataAvatar: userData.avatar ? 'Set' : 'Not set',
+                currentUserAvatarLength: currentUser.avatar ? currentUser.avatar.length : 0,
+                userDataAvatarLength: userData.avatar ? userData.avatar.length : 0
+            };
+            
+            document.getElementById('debug-info').textContent = JSON.stringify(info, null, 2);
+            updateStatus('Storage information updated', 'info');
+        }
+
+        function updateStatus(message, type) {
+            const statusDisplay = document.getElementById('status-display');
+            statusDisplay.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+
+        // Override showNotification for testing
+        function showNotification(message, type) {
+            updateStatus(message, type);
+            console.log(`${type.toUpperCase()}: ${message}`);
+        }
+
+        // Initialize test
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🧪 Avatar upload test page loaded');
+            
+            // Initialize avatar upload functionality
+            if (typeof initializeAvatarUpload === 'function') {
+                initializeAvatarUpload();
+                updateStatus('Avatar upload functionality initialized', 'success');
+            } else {
+                updateStatus('Avatar upload function not found', 'error');
+            }
+            
+            // Load existing avatar if available
+            const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+            if (currentUser.avatar) {
+                const avatars = document.querySelectorAll('#profile-avatar, #profile-form-avatar');
+                avatars.forEach(avatar => {
+                    avatar.src = currentUser.avatar;
+                });
+                updateStatus('Existing avatar loaded', 'info');
+            }
+        });
+
+        // Add drag and drop visual feedback
+        document.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            document.body.style.background = 'linear-gradient(135deg, rgba(215, 109, 119, 0.1), rgba(215, 109, 119, 0.05))';
+        });
+
+        document.addEventListener('dragleave', function(e) {
+            if (e.clientX === 0 && e.clientY === 0) {
+                document.body.style.background = '';
+            }
+        });
+
+        document.addEventListener('drop', function(e) {
+            e.preventDefault();
+            document.body.style.background = '';
+        });
+    </script>
+</body>
+</html>

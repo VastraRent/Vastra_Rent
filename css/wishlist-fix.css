@@ -1,0 +1,193 @@
+/* Wishlist Button Fix CSS */
+
+/* Ensure wishlist buttons are properly styled and clickable */
+.wishlist-item-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    z-index: 10;
+    position: relative;
+}
+
+.wishlist-item-actions .btn {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    pointer-events: all;
+    z-index: 10;
+    position: relative;
+}
+
+.wishlist-item-actions .btn.primary {
+    background-color: #d76d77;
+    color: white;
+}
+
+.wishlist-item-actions .btn.primary:hover {
+    background-color: #c55a64;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(215, 109, 119, 0.3);
+}
+
+.wishlist-item-actions .btn.secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.wishlist-item-actions .btn.secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.wishlist-item-actions .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.wishlist-item-actions .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Ensure wishlist items have proper hover effects */
+.wishlist-item {
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.wishlist-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure images are properly displayed */
+.wishlist-item-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Ensure text is readable */
+.wishlist-item-details h4 {
+    margin: 10px 0 5px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.wishlist-item-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d76d77;
+    margin: 5px 0;
+}
+
+.wishlist-item-category {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.wishlist-item-description {
+    font-size: 13px;
+    color: #888;
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+/* Loading state for buttons */
+.btn .fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Clear wishlist button */
+#clear-wishlist-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#clear-wishlist-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* Empty wishlist state */
+.empty-wishlist {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.empty-wishlist i {
+    font-size: 48px;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.empty-wishlist h3 {
+    margin: 20px 0 10px 0;
+    color: #333;
+}
+
+.empty-wishlist p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .wishlist-item-actions {
+        flex-direction: column;
+    }
+    
+    .wishlist-item-actions .btn {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .wishlist-item-image {
+        height: 150px;
+    }
+}
+
+/* Debug styles (can be removed) */
+.debug-wishlist {
+    border: 2px solid red !important;
+}
+
+.debug-button {
+    border: 2px solid blue !important;
+}

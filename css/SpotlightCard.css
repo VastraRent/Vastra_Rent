@@ -1,0 +1,115 @@
+/* SpotlightCard CSS */
+
+.card-spotlight {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-spotlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            #ffffff 0%,
+            #f8eded 30%,
+            #ddd0d2 60%,
+            transparent 80%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.card-spotlight:hover::before {
+    opacity: 1;
+}
+
+.card-spotlight>* {
+    position: relative;
+    z-index: 2;
+}
+
+/* Enhanced styles for all card components with spotlight effect */
+
+/* Team Member Cards */
+.team-member.card-spotlight {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.team-member.card-spotlight:hover {
+    border-color: var(--spotlight-color, rgba(108, 99, 255, 0.5));
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.team-member.card-spotlight::before {
+    border-radius: 20px;
+}
+
+/* Mission Value Cards */
+.mission-value.card-spotlight {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mission-value.card-spotlight:hover {
+    border-color: var(--spotlight-color, rgba(67, 206, 162, 0.5));
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.mission-value.card-spotlight::before {
+    border-radius: 10px;
+}
+
+/* Process Step Cards */
+.process-step.card-spotlight {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.process-step.card-spotlight:hover {
+    border-color: var(--spotlight-color, rgba(108, 99, 255, 0.5));
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.process-step.card-spotlight::before {
+    border-radius: 10px;
+}
+
+/* Testimonial Cards */
+.testimonial.card-spotlight {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.testimonial.card-spotlight:hover {
+    border-color: var(--spotlight-color, rgba(255, 255, 255, 0.3));
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial.card-spotlight::before {
+    border-radius: 10px;
+}
+
+/* Ensure content stays above spotlight for all card types */
+.team-member .member-image,
+.team-member h3,
+.team-member .member-title,
+.team-member .member-bio,
+.team-member .member-social,
+.mission-value i,
+.mission-value h3,
+.mission-value p,
+.process-step .step-number,
+.process-step .step-icon,
+.process-step h3,
+.process-step p,
+.testimonial .testimonial-content,
+.testimonial .testimonial-author {
+    position: relative;
+    z-index: 2;
+}

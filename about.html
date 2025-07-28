@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VASTRA RENT - About Us</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/SpotlightCard.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="img/vrlogo.jpg" alt="VASTRA RENT Logo">
+                    <h1>VASTRA RENT</h1>
+                </a>
+            </div>
+            <div class="header-nav">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="inventory.html"><i class="fas fa-tshirt"></i> Inventory</a></li>
+                        <li><a href="perfect-for-you.html"><i class="fas fa-magic"></i> Perfect for You</a></li>
+                        <li><a href="rental-status.html"><i class="fas fa-clock"></i> Rental Status</a></li>
+                        <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="profile-dropdown">
+                    <a href="#" class="profile-trigger">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="profile-menu">
+                        <div class="profile-header">
+                            <img src="https://via.placeholder.com/40x40?text=U" alt="Profile"
+                                class="profile-avatar-small">
+                            <div class="profile-info-small">
+                                <span class="profile-name-small">John Doe</span>
+                                <span class="profile-email-small">john@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-menu-items">
+                            <a href="profile.html" class="profile-menu-item">
+                                <i class="fas fa-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                            <a href="profile.html?section=rental-history" class="profile-menu-item">
+                                <i class="fas fa-history"></i>
+                                <span>Rental History</span>
+                            </a>
+                            <a href="profile.html?section=cart" class="profile-menu-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>My Cart</span>
+                                <span class="cart-badge" id="header-cart-count">0</span>
+                            </a>
+                            <a href="profile.html?section=wishlist" class="profile-menu-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Wishlist</span>
+                                <span class="wishlist-badge" id="header-wishlist-count">0</span>
+                            </a>
+                            <a href="profile.html?section=addresses" class="profile-menu-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Addresses</span>
+                            </a>
+                            <a href="profile.html?section=payment-methods" class="profile-menu-item">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Payment Methods</span>
+                            </a>
+                            <a href="profile.html?section=settings" class="profile-menu-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </div>
+                        <div class="profile-menu-footer">
+                            <a href="#" id="logout-btn" class="profile-menu-item logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <div class="about-hero-container">
+            <img src="img/Screenshot 2025-07-23 232543.png" alt="VASTRA RENT About Us" class="about-hero-image">
+        </div>
+    </section>
+
+    <section class="about-story">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="img/NEW LOGO.jpg" alt="VASTRA RENT Story">
+            </div>
+            <div class="about-content">
+                <h2>Our Story</h2>
+                <p>Since Vastra Rent was founded in 2025—starting as a simple website for renting occasional clothes for
+                    men and women—it has positioned itself as a go-to platform for smart fashion choices.</p>
+                <p>Over time, Vastra Rent has grown with changing needs, expanding to include a broader range of styles,
+                    trends, and sustainable options, while focusing on easy access to high-quality outfits that people
+                    wear only sometimes, like for parties or events.</p>
+                <p>Today, Vastra Rent is a user-friendly online service that looks at everyday fashion through the eyes
+                    of affordability and convenience, holds strong influence in the rental clothing world, and stays
+                    true to values like inclusivity, creativity, and community building.</p>
+                <p>Its power to excite, motivate, and help users has never been greater.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-mission">
+        <div class="mission-container">
+            <h2>Our Mission & Values</h2>
+            <div class="mission-values">
+                <div class="mission-value">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainability</h3>
+                    <p>We're committed to reducing fashion waste by extending the lifecycle of quality clothing through
+                        our rental service.</p>
+                </div>
+                <div class="mission-value">
+                    <i class="fas fa-star"></i>
+                    <h3>Quality</h3>
+                    <p>We curate only the finest clothing items, ensuring our customers always look and feel their best.
+                    </p>
+                </div>
+                <div class="mission-value">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Accessibility</h3>
+                    <p>We believe everyone deserves access to premium fashion, regardless of budget constraints.</p>
+                </div>
+                <div class="mission-value">
+                    <i class="fas fa-heart"></i>
+                    <h3>Community</h3>
+                    <p>We foster a community of fashion enthusiasts who share our values of style, sustainability, and
+                        smart consumption.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-team">
+        <div class="about-container">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="img\CEO.jpg" alt="Vinit Prajapati">
+                    </div>
+                    <h3>Vinit Prajapati</h3>
+                    <p class="member-title">Founder & CEO</p>
+                    <p class="member-bio">we're transforming how businesses handle inventory-efficiently
+                        and effortlessly.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="img/CFO.jpg" alt="Shreyash Vekariya">
+                    </div>
+                    <h3>Shreyash Vekariya</h3>
+                    <p class="member-title">Co-founder & CFO</p>
+                    <p class="member-bio">Logistics expert ensuring our clothing items are always in perfect condition
+                        and delivered on time.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="img/CTO.jpg" alt="Krinal Thummar">
+                    </div>
+                    <h3>Krinal Thummar</h3>
+                    <p class="member-title">Fashion Director & CTO</p>
+                    <p class="member-bio">Former fashion editor with an eye for trends and quality, curating our
+                        ever-evolving collection.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="about-process">
+        <div class="about-container">
+            <h2>How It Works</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Browse & Select</h3>
+                    <p>Explore our extensive collection and find the perfect outfit for your occasion.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Book Your Dates</h3>
+                    <p>Choose your rental period, from a single day to several weeks.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Delivery</h3>
+                    <p>We deliver your selected items to your doorstep in perfect condition.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Wear & Enjoy</h3>
+                    <p>Look your best at your event without worrying about maintenance or storage.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Return</h3>
+                    <p>Simply schedule a pickup, and we'll handle the rest, including cleaning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-testimonials">
+        <div class="about-container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonials-container">
+                <div class="testimonials-slider">
+                    <div class="testimonial testimonial-slide active">
+                        <div class="testimonial-content">
+                            <p>"VASTRA RENT has completely changed how I approach fashion. I no longer need to invest in
+                                expensive pieces I'll only wear once or twice. Their service is impeccable, and the
+                                clothing
+                                quality is outstanding."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="img/sahil_kher.jpg" alt="Sahil Kher">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sahil Kher</h4>
+                                <p>Regular Customer since 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial testimonial-slide">
+                        <div class="testimonial-content">
+                            <p>"As someone who attends many business functions, VASTRA RENT has been a game-changer. I
+                                always
+                                have access to fresh, professional attire without the maintenance hassle or closet space
+                                concerns."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="img/dipesh_patel.jpg" alt="Dipesh Patel">
+                            </div>
+                            <div class="author-info">
+                                <h4>Dipesh Patel</h4>
+                                <p>Business Professional</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial testimonial-slide">
+                        <div class="testimonial-content">
+                            <p>"I love that I can experiment with different styles without committing to purchases.
+                                VASTRA RENT has helped me discover my personal style while being environmentally
+                                conscious."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="img/maurya_anjali.jpg" alt="Anjali Maurya">
+                            </div>
+                            <div class="author-info">
+                                <h4>Anjali</h4>
+                                <p>Fashion Enthusiast</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="testimonial-dots">
+                    <span class="testimonial-dot active" data-slide="0"></span>
+                    <span class="testimonial-dot" data-slide="1"></span>
+                    <span class="testimonial-dot" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-contact">
+        <div class="about-container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Visit Us</h3>
+                            <p>Vadodara<br>Gujrat, IN 390019</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>+91 9898471702 / +91 7984291916 / +91 9574946483</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p>project172305@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 9am - 6pm<br>Saturday: 10am - 4pm<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="about-contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Your Name</label>
+                                <input type="text" id="contact-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Your Email</label>
+                                <input type="email" id="contact-email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>VASTRA RENT</h3>
+                <p>Your premium clothing rental service for any occasion.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="rental-status.html">Rental Status</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Vadodara<br>Gujrat, IN 390019</p>
+                <p><i class="fas fa-phone"></i>+91 9898471702 / +91 7984291916 / +91 9574946483</p>
+
+                <p><i class="fas fa-envelope"></i> project172305@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 VASTRA RENT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="floating-action-btn" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/about.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+
+</html

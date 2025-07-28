@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VASTRA RENT - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="img/vrlogo.jpg" alt="VASTRA RENT Logo">
+                    <h1>VASTRA RENT</h1>
+                </a>
+            </div>
+            <div class="header-nav">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="home.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="inventory.html"><i class="fas fa-tshirt"></i> Inventory</a></li>
+                        <li><a href="perfect-for-you.html"><i class="fas fa-magic"></i> Perfect for You</a></li>
+                        <li><a href="rental-status.html"><i class="fas fa-clock"></i> Rental Status</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="profile-dropdown">
+                    <a href="#" class="profile-trigger">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="profile-menu">
+                        <div class="profile-header">
+                            <img src="https://via.placeholder.com/40x40?text=U" alt="Profile"
+                                class="profile-avatar-small">
+                            <div class="profile-info-small">
+                                <span class="profile-name-small">John Doe</span>
+                                <span class="profile-email-small">john@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-menu-items">
+                            <a href="profile.html" class="profile-menu-item">
+                                <i class="fas fa-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                            <a href="profile.html?section=rental-history" class="profile-menu-item">
+                                <i class="fas fa-history"></i>
+                                <span>Rental History</span>
+                            </a>
+                            <a href="profile.html?section=cart" class="profile-menu-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>My Cart</span>
+                                <span class="cart-badge" id="header-cart-count">0</span>
+                            </a>
+                            <a href="profile.html?section=wishlist" class="profile-menu-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Wishlist</span>
+                                <span class="wishlist-badge" id="header-wishlist-count">0</span>
+                            </a>
+                            <a href="profile.html?section=addresses" class="profile-menu-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Addresses</span>
+                            </a>
+                            <a href="profile.html?section=payment-methods" class="profile-menu-item">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Payment Methods</span>
+                            </a>
+                            <a href="profile.html?section=settings" class="profile-menu-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </div>
+                        <div class="profile-menu-footer">
+                            <a href="#" id="logout-btn" class="profile-menu-item logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-image-container">
+                <img src="img/COVER.jpg" alt="VASTRA RENT - Premium Clothing Rental" class="hero-cover-image">
+                <div class="hero-overlay">
+                    <div class="hero-text">
+                        <a href="inventory.html" class="btn hero-browse-btn">Browse Collection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-card animate-slide-left stagger-1" data-delay="0">
+            <div class="feature-icon">
+                <i class="fas fa-tshirt"></i>
+            </div>
+            <h3>Premium Selection</h3>
+            <p>Choose from our curated collection of designer clothes</p>
+        </div>
+        <div class="feature-card animate-slide-up stagger-2" data-delay="100">
+            <div class="feature-icon">
+                <i class="fas fa-truck"></i>
+            </div>
+            <h3>Free Delivery</h3>
+            <p>Free shipping and returns on all orders</p>
+        </div>
+        <div class="feature-card animate-slide-up stagger-3" data-delay="200">
+            <div class="feature-icon">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h3>Flexible Rental</h3>
+            <p>Rent for days, weeks, or months - you decide</p>
+        </div>
+        <div class="feature-card animate-slide-right stagger-4" data-delay="300">
+            <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Damage Protection</h3>
+            <p>Basic protection included with every rental</p>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="process-container">
+            <img src="img/PROCESS.jpg" alt="VASTRA RENT Process" class="process-image">
+        </div>
+    </section>
+
+    <section class="trending">
+        <h2 class="animate-zoom-in">Shop by Category</h2>
+        <div class="category-grid">
+            <div class="category-card animate-flip-y stagger-1" data-category="Lehnga" data-delay="0">
+                <div class="category-image" style="background-image: url('img/IMAGE.jpg');">
+                    <div class="category-overlay">
+                        <div class="category-actions">
+                            <button class="explore-btn">Explore Collection</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-label">
+                    <span class="category-diamond">♦</span>
+                    <h3>Lehnga</h3>
+                    <span class="category-diamond">♦</span>
+                </div>
+            </div>
+
+            <div class="category-card animate-slide-up stagger-2" data-category="Gown" data-delay="150">
+                <div class="category-image" style="background-image: url('img/IMAGE-1.jpg');">
+                    <div class="category-overlay">
+                        <div class="category-actions">
+                            <button class="explore-btn">Explore Collection</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-label">
+                    <span class="category-diamond">♦</span>
+                    <h3>Gown</h3>
+                    <span class="category-diamond">♦</span>
+                </div>
+            </div>
+
+            <div class="category-card animate-flip-y stagger-3" data-category="Anarkali" data-delay="300">
+                <div class="category-image" style="background-image: url('img/IMAGE-2.jpg');">
+                    <div class="category-overlay">
+                        <div class="category-actions">
+                            <button class="explore-btn">Explore Collection</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-label">
+                    <span class="category-diamond">♦</span>
+                    <h3>Anarkali</h3>
+                    <span class="category-diamond">♦</span>
+                </div>
+            </div>
+
+            <div class="category-card animate-slide-left stagger-4" data-category="Sherwani" data-delay="450">
+                <div class="category-image" style="background-image: url('img/IMAGE-3.jpg');">
+                    <div class="category-overlay">
+                        <div class="category-actions">
+                            <button class="explore-btn">Explore Collection</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-label">
+                    <span class="category-diamond">♦</span>
+                    <h3>Sherwani</h3>
+                    <span class="category-diamond">♦</span>
+                </div>
+            </div>
+
+            <div class="category-card animate-slide-up stagger-5" data-category="Indowastern" data-delay="600">
+                <div class="category-image" style="background-image: url('img/IMAGE-4.jpg');">
+                    <div class="category-overlay">
+                        <div class="category-actions">
+                            <button class="explore-btn">Explore Collection</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-label">
+                    <span class="category-diamond">♦</span>
+                    <h3>Indowastern</h3>
+                    <span class="category-diamond">♦</span>
+                </div>
+            </div>
+
+            <div class="category-card animate-slide-right stagger-6" data-category="Tuxedo" data-delay="750">
+                <div class="category-image" style="background-image: url('img/IMAGE-5.jpg');">
+                    <div class="category-overlay">
+                        <div class="category-actions">
+                            <button class="explore-btn">Explore Collection</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-label">
+                    <span class="category-diamond">♦</span>
+                    <h3>Tuxedo</h3>
+                    <span class="category-diamond">♦</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bridal-collection-section">
+        <div class="bridal-collection-container">
+            <img src="img/bridal all collection.jpg" alt="VASTRA RENT Bridal Collection"
+                class="bridal-collection-image">
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="animate-slide-down">What Our Brand Ambassador says</h2>
+        <div class="testimonial-container">
+            <div class="testimonial animate-slide-left stagger-1" data-delay="0">
+                <div class="testimonial-avatar">
+                    <img src="IMG/AMBESSEDOR(F).jpg" alt="Rutu Satasiya">
+                </div>
+                <div class="testimonial-text">
+                    <p>"Life is full of special occasions. Vastra rent ensures I meet every single one with unmatched
+                        confidence and style."</p>
+                </div>
+                <div class="testimonial-author">
+                    <p>- Rutu Satasiya</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial animate-slide-right stagger-2" data-delay="200">
+                <div class="testimonial-avatar">
+                    <img src="img/AMBESSEDOR(M).jpg" alt="Vicky Oza">
+                </div>
+                <div class="testimonial-text">
+                    <p>"I needed a suit for an important interview but didn't want to invest in one yet. VASTRA RENT was
+                        the perfect solution."</p>
+                </div>
+                <div class="testimonial-author">
+                    <p>- Vicky Oza</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>VASTRA RENT</h3>
+                <p>Your premium clothing rental service for any occasion.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="rental-status.html">Rental Status</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Style City</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@vastrarent.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 VASTRA RENT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/shared-inventory.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script>
+        // Enhanced Scroll Animation JavaScript
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check for Intersection Observer support
+            if (!('IntersectionObserver' in window)) {
+                // Fallback for older browsers
+                document.querySelectorAll('[class*="animate-"]').forEach(el => {
+                    el.classList.add('animate-in');
+                });
+                return;
+            }
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = parseInt(entry.target.dataset.delay) || 0;
+                        setTimeout(() => {
+                            entry.target.classList.add('animate-in');
+                        }, delay);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with animation classes
+            const animationClasses = [
+                '.animate-on-scroll',
+                '.animate-slide-left',
+                '.animate-slide-right',
+                '.animate-slide-up',
+                '.animate-slide-down',
+                '.animate-zoom-in',
+                '.animate-flip-x',
+                '.animate-flip-y',
+                '.animate-rotate-in'
+            ];
+
+            animationClasses.forEach(className => {
+                try {
+                    document.querySelectorAll(className).forEach(el => {
+                        observer.observe(el);
+                    });
+                } catch (error) {
+                    console.warn('Animation observer error:', error);
+                }
+            });
+
+            // Enhanced parallax effects with performance optimization
+            let ticking = false;
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function updateParallax() {
+                if (prefersReducedMotion) return;
+
+                try {
+                    const scrolled = window.pageYOffset;
+                    const rate = scrolled * -0.3; // Reduced for better performance
+                    const hero = document.querySelector('.hero');
+
+                    if (hero && scrolled < window.innerHeight * 2) { // Limit parallax range
+                        hero.style.transform = `translate3d(0, ${rate}px, 0)`;
+                    }
+
+                    // Parallax for particles with throttling
+                    if (scrolled < window.innerHeight * 1.5) {
+                        document.querySelectorAll('.particle').forEach((particle, index) => {
+                            const speed = 0.1 + (index * 0.05); // Reduced speed
+                            const yPos = -(scrolled * speed);
+                            particle.style.transform = `translate3d(0, ${yPos}px, 0)`;
+                        });
+                    }
+                } catch (error) {
+                    console.warn('Parallax error:', error);
+                }
+
+                ticking = false;
+            }
+
+            function requestTick() {
+                if (!ticking && !prefersReducedMotion) {
+                    requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }
+
+            // Only add scroll listener if not on mobile and motion is allowed
+            if (!prefersReducedMotion && window.innerWidth > 768) {
+                window.addEventListener('scroll', requestTick, { passive: true });
+            }
+
+            // Enhanced card interactions
+            document.querySelectorAll('.item-card').forEach((card, index) => {
+                // Mouse enter effect - simple hover without tilt
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                    this.style.transition = 'all 0.3s ease';
+                    this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
+                });
+
+                // Mouse leave effect
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '';
+                });
+            });
+
+            // Feature card enhanced interactions
+            document.querySelectorAll('.feature-card').forEach((card, index) => {
+                card.addEventListener('mouseenter', function () {
+                    // Add jello animation on hover
+                    this.style.animation = 'jello 0.6s ease-in-out';
+                });
+
+                card.addEventListener('animationend', function () {
+                    this.style.animation = '';
+                });
+
+                // Icon bounce effect
+                const icon = card.querySelector('.feature-icon i');
+                if (icon) {
+                    card.addEventListener('mouseenter', function () {
+                        icon.style.animation = 'bounce 0.6s ease';
+                    });
+
+                    card.addEventListener('mouseleave', function () {
+                        icon.style.animation = '';
+                    });
+                }
+            });
+
+            // Testimonial interactions
+            document.querySelectorAll('.testimonial').forEach(testimonial => {
+                testimonial.addEventListener('mouseenter', function () {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+
+                testimonial.addEventListener('mouseleave', function () {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+
+            // Button interactions
+            document.querySelectorAll('.btn').forEach(btn => {
+                // Ripple effect
+                btn.addEventListener('click', function (e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(255, 255, 255, 0.3);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        pointer-events: none;
+                    `;
+
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+
+                    // Loading state for navigation
+                    if (this.href && !this.href.includes('#')) {
+                        this.classList.add('loading');
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+
+                        // Reset after 2 seconds if still on page
+                        setTimeout(() => {
+                            if (this.classList.contains('loading')) {
+                                this.classList.remove('loading');
+                                this.innerHTML = originalText;
+                            }
+                        }, 2000);
+                    }
+                });
+
+                // Hover effects
+                btn.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+                });
+
+                btn.addEventListener('mouseleave', function () {
+                    if (!this.classList.contains('loading')) {
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '';
+                    }
+                });
+            });
+
+            // Quick view and wishlist button functionality
+            document.querySelectorAll('.quick-view-btn').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Add pulse animation
+                    this.style.animation = 'pulse 0.6s ease';
+
+                    // Show notification
+                    showNotification('Quick view feature coming soon!', 'info');
+
+                    setTimeout(() => {
+                        this.style.animation = '';
+                    }, 600);
+                });
+            });
+
+            document.querySelectorAll('.wishlist-btn').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        this.style.color = '#e74c3c';
+                        showNotification('Added to wishlist!', 'success');
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        this.style.color = '';
+                        showNotification('Removed from wishlist!', 'info');
+                    }
+
+                    // Heart animation
+                    this.style.animation = 'heartbeat 0.6s ease';
+                    setTimeout(() => {
+                        this.style.animation = '';
+                    }, 600);
+                });
+            });
+
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add CSS for ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Performance optimization: Reduce animations on low-end devices
+            if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+                document.body.classList.add('reduced-animations');
+            }
+        });
+
+        // Notification function
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : '#17a2b8'};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 5px;
+                z-index: 10000;
+                animation: slideInRight 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            `;
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+    </script>
+
+    <script>
+        // Enhanced Animation System
+        document.addEventListener('DOMContentLoaded', function () {
+            // Create particle system
+            createParticleSystem();
+            // Enhanced scroll animations
+            initializeEnhancedScrollAnimations();
+            // Advanced hover effects
+            initializeAdvancedHoverEffects();
+            // Smooth page transitions
+            initializePageTransitions();
+            // Dynamic background effects
+            initializeDynamicBackgrounds();
+            // Performance monitoring
+            monitorPerformance();
+        });
+
+        // Particle System
+        function createParticleSystem() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            if (window.innerWidth < 768) return; // Skip on mobile for performance
+
+            const particlesContainer = document.createElement('div');
+            particlesContainer.className = 'particles-container';
+            document.body.appendChild(particlesContainer);
+
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                // Random starting position
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                // Random size
+                const size = 2 + Math.random() * 4;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particlesContainer.appendChild(particle);
+                // Remove particle after animation
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, 25000);
+            }
+
+            // Create initial particles
+            for (let i = 0; i < 15; i++) {
+                setTimeout(createParticle, i * 1000);
+            }
+            // Continue creating particles
+            setInterval(createParticle, 2000);
+        }
+
+        // Enhanced Scroll Animations
+        function initializeEnhancedScrollAnimations() {
+            if (!('IntersectionObserver' in window)) {
+                // Fallback for older browsers
+                document.querySelectorAll('[class*="animate-"]').forEach(el => {
+                    el.classList.add('animate-in');
+                });
+                return;
+            }
+
+            const observerOptions = {
+                threshold: [0, 0.1, 0.5, 1],
+                rootMargin: '0px 0px -10% 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const delay = parseInt(element.dataset.delay) || 0;
+                        // Add progressive reveal based on intersection ratio
+                        if (entry.intersectionRatio > 0.1) {
+                            setTimeout(() => {
+                                element.classList.add('animate-in');
+                                // Add special effects for certain elements
+                                if (element.classList.contains('feature-card')) {
+                                    addFeatureCardEffect(element);
+                                }
+                                if (element.classList.contains('category-card')) {
+                                    addCategoryCardEffect(element);
+                                }
+                                // Trigger sound effect (optional)
+                                playAnimationSound();
+                            }, delay);
+                            observer.unobserve(element);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Enhanced animation classes
+            const animationClasses = [
+                '.animate-on-scroll',
+                '.animate-slide-left',
+                '.animate-slide-right',
+                '.animate-slide-up',
+                '.animate-slide-down',
+                '.animate-zoom-in',
+                '.animate-flip-x',
+                '.animate-flip-y',
+                '.animate-rotate-in',
+                '.animate-elastic',
+                '.animate-morph',
+                '.animate-text-glow'
+            ];
+
+            animationClasses.forEach(className => {
+                document.querySelectorAll(className).forEach(el => {
+                    observer.observe(el);
+                });
+            });
+        }
+
+        // Advanced Hover Effects
+        function initializeAdvancedHoverEffects() {
+            // Enhanced category card effects
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('mouseenter', function (e) {
+                    this.style.transform = 'translateY(-15px) scale(1.03) rotateX(5deg)';
+                    this.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.2)';
+                    this.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    // Add glow effect
+                    this.style.filter = 'brightness(1.1)';
+                    // Animate the explore button
+                    const exploreBtn = this.querySelector('.explore-btn');
+                    if (exploreBtn) {
+                        exploreBtn.style.transform = 'scale(1.1)';
+                        exploreBtn.style.background = 'linear-gradient(45deg, #4a90e2, #357abd)';
+                        exploreBtn.style.color = 'white';
+                        exploreBtn.style.cursor = 'pointer';
+                        exploreBtn.style.boxShadow = '0 5px 15px rgba(74, 144, 226, 0.4)';
+                    }
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1) rotateX(0deg)';
+                    this.style.boxShadow = '';
+                    this.style.filter = '';
+                    const exploreBtn = this.querySelector('.explore-btn');
+                    if (exploreBtn) {
+                        exploreBtn.style.transform = 'scale(1)';
+                        exploreBtn.style.background = '';
+                        exploreBtn.style.color = '';
+                        exploreBtn.style.boxShadow = '';
+                    }
+                });
+
+                // Add click ripple effect and explore functionality
+                card.addEventListener('click', function (e) {
+                    createRippleEffect(e, this);
+                    
+                    // Check if the click was on the explore button
+                    if (e.target.classList.contains('explore-btn') || e.target.closest('.explore-btn')) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Get the category from the card's data attribute
+                        const category = this.dataset.category;
+                        console.log('Explore button clicked for category:', category);
+                        
+                        // Map the category names to match inventory filter values
+                        const categoryMap = {
+                            'lehenga': 'Lehnga',
+                            'gown': 'Gown',
+                            'anarkali': 'Anarkali',
+                            'sherwani': 'Sherwani',
+                            'indo-western': 'Indowastern',
+                            'JODHAPURI': 'Jodhpuri'
+                        };
+                        
+                        const filterCategory = categoryMap[category] || category;
+                        console.log('Mapped to filter category:', filterCategory);
+                        
+                        // Redirect to inventory page with category filter
+                        if (filterCategory) {
+                            const redirectUrl = `inventory.html?category=${filterCategory}`;
+                            console.log('Redirecting to:', redirectUrl);
+                            window.location.href = redirectUrl;
+                        } else {
+                            // Fallback to general inventory page
+                            console.log('No category mapping found, redirecting to general inventory');
+                            window.location.href = 'inventory.html';
+                        }
+                    }
+                });
+            });
+
+            // Enhanced feature card effects
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.animation = 'jello 0.8s ease-in-out';
+                    const icon = this.querySelector('.feature-icon i');
+                    if (icon) {
+                        icon.style.animation = 'bounce 0.6s ease, textGlow 2s ease-in-out infinite alternate';
+                        icon.style.transform = 'scale(1.2)';
+                    }
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    const icon = this.querySelector('.feature-icon i');
+                    if (icon) {
+                        icon.style.animation = '';
+                        icon.style.transform = 'scale(1)';
+                    }
+                });
+            });
+        }
+
+        // Ripple Effect
+        function createRippleEffect(event, element) {
+            const ripple = document.createElement('span');
+            const rect = element.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: ripple 0.8s linear;
+                pointer-events: none;
+                z-index: 10;
+            `;
+
+            element.style.position = 'relative';
+            element.style.overflow = 'hidden';
+            element.appendChild(ripple);
+
+            setTimeout(() => {
+                if (ripple.parentNode) {
+                    ripple.parentNode.removeChild(ripple);
+                }
+            }, 800);
+        }
+
+        // Page Transitions
+        function initializePageTransitions() {
+            document.querySelectorAll('a[href]:not([href^="#"]):not([target="_blank"])').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    if (this.hostname === window.location.hostname) {
+                        e.preventDefault();
+                        const href = this.href;
+                        // Add page transition effect
+                        document.body.style.transition = 'opacity 0.3s ease';
+                        document.body.style.opacity = '0';
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 300);
+                    }
+                });
+            });
+        }
+
+        // Dynamic Backgrounds
+        function initializeDynamicBackgrounds() {
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                // Add subtle background animation
+                hero.style.background = 'linear-gradient(-45deg, rgba(74, 144, 226, 0.1), rgba(255, 255, 255, 0.1), rgba(74, 144, 226, 0.05), rgba(255, 255, 255, 0.1))';
+                hero.style.backgroundSize = '400% 400%';
+                hero.style.animation = 'backgroundShift 15s ease infinite';
+            }
+        }
+
+        // Special Effects for Elements
+        function addFeatureCardEffect(element) {
+            // Add sparkle effect
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    createSparkle(element);
+                }, i * 200);
+            }
+        }
+
+        function addCategoryCardEffect(element) {
+            // Add shine effect
+            const shine = document.createElement('div');
+            shine.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                animation: slideInRight 1s ease;
+                pointer-events: none;
+                z-index: 2;
+            `;
+            element.style.position = 'relative';
+            element.appendChild(shine);
+            setTimeout(() => {
+                if (shine.parentNode) {
+                    shine.parentNode.removeChild(shine);
+                }
+            }, 1000);
+        }
+
+        function createSparkle(parent) {
+            const sparkle = document.createElement('div');
+            sparkle.style.cssText = `
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: #ffd700;
+                border-radius: 50%;
+                top: ${Math.random() * 100}%;
+                left: ${Math.random() * 100}%;
+                animation: sparkleAnimation 1s ease-out;
+                pointer-events: none;
+                z-index: 10;
+            `;
+            parent.style.position = 'relative';
+            parent.appendChild(sparkle);
+            setTimeout(() => {
+                if (sparkle.parentNode) {
+                    sparkle.parentNode.removeChild(sparkle);
+                }
+            }, 1000);
+        }
+
+        // Performance Monitoring
+        function monitorPerformance() {
+            let frameCount = 0;
+            let lastTime = performance.now();
+
+            function checkFPS() {
+                frameCount++;
+                const currentTime = performance.now();
+                if (currentTime - lastTime >= 1000) {
+                    const fps = frameCount;
+                    frameCount = 0;
+                    lastTime = currentTime;
+                    // Reduce animations if FPS is too low
+                    if (fps < 30) {
+                        document.body.classList.add('reduced-animations');
+                        console.warn('Low FPS detected, reducing animations');
+                    }
+                }
+                requestAnimationFrame(checkFPS);
+            }
+            requestAnimationFrame(checkFPS);
+        }
+
+        // Optional: Sound effects (requires audio files)
+        function playAnimationSound() {
+            // Uncomment and add audio files if desired
+            // const audio = new Audio('sounds/animation.mp3');
+            // audio.volume = 0.1;
+            // audio.play().catch(() => {}); // Ignore errors
+        }
+
+        // Add sparkle animation CSS
+        const sparkleStyle = document.createElement('style');
+        sparkleStyle.textContent = `
+            @keyframes sparkleAnimation {
+                0% {
+                    opacity: 0;
+                    transform: scale(0) rotate(0deg);
+                }
+                50% {
+                    opacity: 1;
+                    transform: scale(1) rotate(180deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(0) rotate(360deg);
+                }
+            }
+
+            .reduced-animations * {
+                animation-duration: 0.1s !important;
+                transition-duration: 0.1s !important;
+            }
+
+            .reduced-animations .particles-container {
+                display: none !important;
+            }
+
+            .particles-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 1;
+            }
+
+            .particle {
+                position: absolute;
+                background: rgba(74, 144, 226, 0.3);
+                border-radius: 50%;
+                animation: particleFloat linear infinite;
+            }
+
+            @keyframes particleFloat {
+                0% {
+                    transform: translateY(100vh) rotate(0deg);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes backgroundShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            @keyframes jello {
+                0%, 11.1%, 100% {
+                    transform: translate3d(0, 0, 0);
+                }
+                22.2% {
+                    transform: skewX(-12.5deg) skewY(-12.5deg);
+                }
+                33.3% {
+                    transform: skewX(6.25deg) skewY(6.25deg);
+                }
+                44.4% {
+                    transform: skewX(-3.125deg) skewY(-3.125deg);
+                }
+                55.5% {
+                    transform: skewX(1.5625deg) skewY(1.5625deg);
+                }
+                66.6% {
+                    transform: skewX(-0.78125deg) skewY(-0.78125deg);
+                }
+                77.7% {
+                    transform: skewX(0.390625deg) skewY(0.390625deg);
+                }
+                88.8% {
+                    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+                }
+            }
+
+            @keyframes textGlow {
+                0% {
+                    text-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+                }
+                100% {
+                    text-shadow: 0 0 20px rgba(74, 144, 226, 0.8), 0 0 30px rgba(74, 144, 226, 0.6);
+                }
+            }
+        `;
+        document.head.appendChild(sparkleStyle);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VASTRA RENT - Rental Status</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rental-status.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="img/vrlogo.jpg" alt="VASTRA RENT Logo">
+                    <h1>VASTRA RENT</h1>
+                </a>
+            </div>
+            <div class="header-nav">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="inventory.html"><i class="fas fa-tshirt"></i> Inventory</a></li>
+                        <li><a href="perfect-for-you.html"><i class="fas fa-magic"></i> Perfect for You</a></li>
+                        <li><a href="rental-status.html" class="active"><i class="fas fa-clock"></i> Rental Status</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="profile-dropdown">
+                    <a href="#" class="profile-trigger">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="profile-menu">
+                        <div class="profile-header">
+                            <img src="https://via.placeholder.com/40x40?text=U" alt="Profile"
+                                class="profile-avatar-small">
+                            <div class="profile-info-small">
+                                <span class="profile-name-small">John Doe</span>
+                                <span class="profile-email-small">john@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-menu-items">
+                            <a href="profile.html" class="profile-menu-item">
+                                <i class="fas fa-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                            <a href="profile.html?section=rental-history" class="profile-menu-item">
+                                <i class="fas fa-history"></i>
+                                <span>Rental History</span>
+                            </a>
+                            <a href="profile.html?section=cart" class="profile-menu-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>My Cart</span>
+                                <span class="cart-badge" id="header-cart-count">0</span>
+                            </a>
+                            <a href="profile.html?section=wishlist" class="profile-menu-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Wishlist</span>
+                                <span class="wishlist-badge" id="header-wishlist-count">0</span>
+                            </a>
+                            <a href="profile.html?section=addresses" class="profile-menu-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Addresses</span>
+                            </a>
+                            <a href="profile.html?section=payment-methods" class="profile-menu-item">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Payment Methods</span>
+                            </a>
+                            <a href="profile.html?section=settings" class="profile-menu-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </div>
+                        <div class="profile-menu-footer">
+                            <a href="#" id="logout-btn" class="profile-menu-item logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="rental-status-container">
+        <div class="status-header">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1><i class="fas fa-clock"></i> Your Rental Status</h1>
+                    <p>Track and manage your current and past clothing rentals</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn secondary" id="refresh-btn">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                    <button class="btn" id="export-btn">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-stats">
+            <div class="stat-card active">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="active-count">0</h3>
+                    <p>Active Rentals</p>
+                </div>
+            </div>
+            <div class="stat-card upcoming">
+                <div class="stat-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="upcoming-count">0</h3>
+                    <p>Upcoming Rentals</p>
+                </div>
+            </div>
+            <div class="stat-card completed">
+                <div class="stat-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="completed-count">0</h3>
+                    <p>Past Rentals</p>
+                </div>
+            </div>
+            <div class="stat-card total">
+                <div class="stat-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="total-spent">₹0</h3>
+                    <p>Total Spent</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-tab="all">
+                    <i class="fas fa-list"></i> All Rentals
+                </button>
+                <button class="filter-tab" data-tab="active">
+                    <i class="fas fa-clock"></i> Active
+                </button>
+                <button class="filter-tab" data-tab="upcoming">
+                    <i class="fas fa-calendar-alt"></i> Upcoming
+                </button>
+                <button class="filter-tab" data-tab="completed">
+                    <i class="fas fa-history"></i> Completed
+                </button>
+            </div>
+            <div class="filter-controls">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search rentals...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <select id="sort-select">
+                    <option value="date-desc">Latest First</option>
+                    <option value="date-asc">Oldest First</option>
+                    <option value="price-desc">Highest Price</option>
+                    <option value="price-asc">Lowest Price</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="rentals-container" id="rentals-container">
+            <div class="loading-state" id="loading-state">
+                <div class="loading-spinner"></div>
+                <p>Loading your rentals...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div id="extend-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-calendar-plus"></i> Extend Rental</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="extend-item-details"></div>
+                <form id="extend-form">
+                    <div class="form-group">
+                        <label for="extend-days">Extend by:</label>
+                        <select id="extend-days" required>
+                            <option value="1">1 Day - ₹200</option>
+                            <option value="3">3 Days - ₹500</option>
+                            <option value="7">1 Week - ₹1000</option>
+                            <option value="14">2 Weeks - ₹1800</option>
+                        </select>
+                    </div>
+                    <div class="extension-summary">
+                        <p>New Return Date: <span id="new-return-date"></span></p>
+                        <p>Extension Cost: <span id="extension-cost">₹0</span></p>
+                    </div>
+                    <button type="submit" class="btn">Confirm Extension</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="return-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-undo"></i> Return Item</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="return-item-details"></div>
+                <form id="return-form">
+                    <div class="form-group">
+                        <label for="return-condition">Item Condition:</label>
+                        <select id="return-condition" required>
+                            <option value="excellent">Excellent - No damage</option>
+                            <option value="good">Good - Minor wear</option>
+                            <option value="fair">Fair - Noticeable wear</option>
+                            <option value="poor">Poor - Significant damage</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="return-notes">Additional Notes:</label>
+                        <textarea id="return-notes" placeholder="Any issues or comments..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">Schedule Return</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="review-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-star"></i> Leave a Review</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="review-item-details"></div>
+                <form id="review-form">
+                    <div class="form-group">
+                        <label>Rating:</label>
+                        <div class="star-rating">
+                            <i class="fas fa-star" data-rating="1"></i>
+                            <i class="fas fa-star" data-rating="2"></i>
+                            <i class="fas fa-star" data-rating="3"></i>
+                            <i class="fas fa-star" data-rating="4"></i>
+                            <i class="fas fa-star" data-rating="5"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-text">Your Review:</label>
+                        <textarea id="review-text" placeholder="Share your experience..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>VASTRA RENT</h3>
+                <p>Your premium clothing rental service for any occasion.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="rental-status.html">Rental Status</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Style City</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@vastrarent.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VASTRA RENT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/shared-inventory.js"></script>
+    <script src="js/rental-integration.js"></script>
+    <script src="js/rental-status.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+
+</html>

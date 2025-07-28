@@ -1,0 +1,163 @@
+/* Avatar Upload Fix CSS */
+
+/* Ensure avatar edit button is visible and clickable */
+.avatar-edit-btn {
+    position: absolute !important;
+    bottom: 5px !important;
+    right: 5px !important;
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: 50% !important;
+    background: #D76D77 !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(215, 109, 119, 0.3) !important;
+    z-index: 10 !important;
+    font-size: 14px !important;
+}
+
+.avatar-edit-btn:hover {
+    background: #c55a64 !important;
+    transform: scale(1.1) rotate(15deg) !important;
+    box-shadow: 0 6px 20px rgba(215, 109, 119, 0.4) !important;
+}
+
+.avatar-edit-btn:active {
+    transform: scale(0.95) !important;
+}
+
+/* Ensure change photo button is visible and clickable */
+.change-photo-btn {
+    background: #6c757d !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin: 0 auto !important;
+    transition: all 0.3s ease !important;
+    font-size: 14px !important;
+}
+
+.change-photo-btn:hover {
+    background: #5a6268 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3) !important;
+}
+
+.change-photo-btn:active {
+    transform: translateY(0) !important;
+}
+
+/* Make profile avatar container relative for positioning */
+.profile-avatar {
+    position: relative !important;
+    display: inline-block !important;
+}
+
+/* Make avatar images clickable */
+#profile-avatar,
+#profile-form-avatar {
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+#profile-avatar:hover,
+#profile-form-avatar:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(215, 109, 119, 0.3) !important;
+}
+
+/* Photo overlay styling */
+.photo-overlay {
+    text-align: center !important;
+    margin-top: 1rem !important;
+}
+
+/* Ensure buttons are not hidden by other elements */
+.avatar-edit-btn,
+.change-photo-btn {
+    pointer-events: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Add visual feedback for drag and drop */
+.profile-avatar img[dragging="true"],
+#profile-avatar[dragging="true"],
+#profile-form-avatar[dragging="true"] {
+    opacity: 0.7 !important;
+    transform: scale(1.05) !important;
+    border: 3px dashed #D76D77 !important;
+}
+
+/* Loading state for avatar upload */
+.avatar-uploading {
+    opacity: 0.5 !important;
+    filter: blur(2px) !important;
+    pointer-events: none !important;
+}
+
+.avatar-uploading::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 30px !important;
+    height: 30px !important;
+    border: 3px solid #f3f3f3 !important;
+    border-top: 3px solid #D76D77 !important;
+    border-radius: 50% !important;
+    animation: spin 1s linear infinite !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 20 !important;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Success state */
+.avatar-success {
+    animation: avatarSuccess 0.6s ease-in-out !important;
+}
+
+@keyframes avatarSuccess {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Error state */
+.avatar-error {
+    animation: avatarError 0.6s ease-in-out !important;
+    border: 3px solid #dc3545 !important;
+}
+
+@keyframes avatarError {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .avatar-edit-btn {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 12px !important;
+    }
+    
+    .change-photo-btn {
+        font-size: 12px !important;
+        padding: 0.4rem 0.8rem !important;
+    }
+}

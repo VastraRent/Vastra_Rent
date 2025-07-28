@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VASTRA RENT - My Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/wishlist-fix.css">
+    <link rel="stylesheet" href="css/avatar-fix.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="img/vrlogo.jpg" alt="VASTRA RENT Logo">
+                    <h1>VASTRA RENT</h1>
+                </a>
+            </div>
+            <div class="header-nav">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="inventory.html"><i class="fas fa-tshirt"></i> Inventory</a></li>
+                         <li><a href="perfect-for-you.html"><i class="fas fa-magic"></i> Perfect for You</a></li>
+                        <li><a href="rental-status.html"><i class="fas fa-clock"></i> Rental Status</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        
+                    </ul>
+                </nav>
+                <div class="profile-dropdown">
+                    <a href="#" class="profile-trigger">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="profile-menu">
+                        <div class="profile-header">
+                            <img src="https://via.placeholder.com/40x40?text=U" alt="Profile" class="profile-avatar-small">
+                            <div class="profile-info-small">
+                                <span class="profile-name-small">John Doe</span>
+                                <span class="profile-email-small">john@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-menu-items">
+                            <a href="profile.html" class="profile-menu-item">
+                                <i class="fas fa-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                            <a href="profile.html?section=rental-history" class="profile-menu-item">
+                                <i class="fas fa-history"></i>
+                                <span>Rental History</span>
+                            </a>
+                            <a href="profile.html?section=cart" class="profile-menu-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>My Cart</span>
+                                <span class="cart-badge" id="header-cart-count">0</span>
+                            </a>
+                            <a href="profile.html?section=wishlist" class="profile-menu-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Wishlist</span>
+                                <span class="wishlist-badge" id="header-wishlist-count">0</span>
+                            </a>
+                            <a href="profile.html?section=addresses" class="profile-menu-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Addresses</span>
+                            </a>
+                            <a href="profile.html?section=payment-methods" class="profile-menu-item">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Payment Methods</span>
+                            </a>
+                            <a href="profile.html?section=settings" class="profile-menu-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </div>
+                        <div class="profile-menu-footer">
+                            <a href="#" id="logout-btn" class="profile-menu-item logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="profile-container">
+        <div class="profile-sidebar">
+            <div class="profile-card">
+                <div class="profile-avatar">
+                    <img id="profile-avatar" src="https://via.placeholder.com/120x120?text=User" alt="Profile Picture">
+                    <button class="avatar-edit-btn" id="avatar-edit-btn">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                    <button class="avatar-save-btn" id="avatar-save-btn" style="display: none;">
+                        <i class="fas fa-save"></i>
+                        Save Photo
+                    </button>
+                </div>
+                <div class="profile-info">
+                    <h2 id="profile-name">John Doe</h2>
+                    <p id="profile-email">john.doe@email.com</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="total-rentals">12</span>
+                            <span class="stat-label">Total Rentals</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="active-rentals">2</span>
+                            <span class="stat-label">Active</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="wishlist-count">5</span>
+                            <span class="stat-label">Wishlist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-menu">
+                <button class="menu-item active" data-section="personal-info">
+                    <i class="fas fa-user"></i>
+                    <span>Personal Information</span>
+                </button>
+                <button class="menu-item" data-section="rental-history">
+                    <i class="fas fa-history"></i>
+                    <span>Rental History</span>
+                </button>
+                <button class="menu-item" data-section="cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>My Cart</span>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="menu-item" data-section="wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span>Wishlist</span>
+                </button>
+                <button class="menu-item" data-section="addresses">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Addresses</span>
+                </button>
+                <button class="menu-item" data-section="payment-methods">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payment Methods</span>
+                </button>
+                <button class="menu-item" data-section="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span>
+                </button>
+                <button class="menu-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <!-- Personal Information Section -->
+            <div class="content-section active" id="personal-info">
+                <div class="section-header">
+                    <h2>Personal Information</h2>
+                    <button class="btn secondary" id="edit-profile-btn">
+                        <i class="fas fa-edit"></i>
+                        Edit Profile
+                    </button>
+                </div>
+
+                <form class="profile-form" id="profile-form">
+                    <!-- Profile Photo Section -->
+                    <div class="form-group profile-photo-section">
+                        <label>Profile Photo</label>
+                        <div class="profile-photo-container">
+                            <div class="profile-photo-display">
+                                <img id="profile-form-avatar" src="https://via.placeholder.com/100x100?text=User" alt="Profile Photo">
+                                <div class="photo-overlay">
+                                    <button type="button" class="change-photo-btn" id="change-photo-btn">
+                                        <i class="fas fa-camera"></i>
+                                        Change Photo
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="photo-info">
+                                <p>Upload a profile photo to personalize your account</p>
+                                <small>Recommended: Square image, at least 200x200px</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" value="John" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" value="Doe" disabled>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" value="john.doe@email.com" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" value="+1 (555) 123-4567" disabled>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="birth-date">Date of Birth</label>
+                            <input type="date" id="birth-date" value="1990-01-15" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" disabled>
+                                <option value="male">Male</option>
+                                <option value="female" selected>Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not-to-say">Prefer not to say</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" rows="3" disabled>Fashion enthusiast who loves trying new styles without the commitment of buying.</textarea>
+                    </div>
+                    <div class="form-actions" id="form-actions" style="display: none;">
+                        <button type="submit" class="btn primary">Save Changes</button>
+                        <button type="button" class="btn secondary" id="cancel-edit-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Rental History Section -->
+            <div class="content-section" id="rental-history">
+                <div class="section-header">
+                    <h2>Rental History</h2>
+                    <div class="filter-options">
+                        <select id="history-filter">
+                            <option value="all">All Rentals</option>
+                            <option value="completed">Completed</option>
+                            <option value="active">Active</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="rental-history-list" id="rental-history-list">
+                    <!-- Rental history items will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Cart Section -->
+            <div class="content-section" id="cart">
+                <div class="section-header">
+                    <h2>My Cart</h2>
+                    <button class="btn secondary" id="clear-cart-btn">
+                        <i class="fas fa-trash"></i>
+                        Clear Cart
+                    </button>
+                </div>
+
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+
+                <div class="cart-summary" id="cart-summary" style="display: none;">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">₹0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Damage Protection:</span>
+                        <span id="cart-protection">₹0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery Fee:</span>
+                        <span id="cart-delivery">₹0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="cart-total">₹0.00</span>
+                    </div>
+                    <button class="btn primary checkout-btn" id="checkout-btn">
+                        <i class="fas fa-credit-card"></i>
+                        Proceed to Checkout
+                    </button>
+                </div>
+
+                <div class="empty-cart" id="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Your cart is empty</h3>
+                    <p>Browse our collection and add items to your cart</p>
+                    <a href="inventory.html" class="btn primary">Browse Collection</a>
+                </div>
+            </div>
+
+            <!-- Wishlist Section -->
+            <div class="content-section" id="wishlist">
+                <div class="section-header">
+                    <h2>My Wishlist</h2>
+                    <button class="btn secondary" id="clear-wishlist-btn">
+                        <i class="fas fa-heart-broken"></i>
+                        Clear Wishlist
+                    </button>
+                </div>
+
+                <div class="wishlist-grid" id="wishlist-grid">
+                    <!-- Wishlist items will be populated by JavaScript -->
+                </div>
+
+                <div class="empty-wishlist" id="empty-wishlist">
+                    <i class="fas fa-heart"></i>
+                    <h3>Your wishlist is empty</h3>
+                    <p>Save items you love for later</p>
+                    <a href="inventory.html" class="btn primary">Browse Collection</a>
+                </div>
+            </div>
+
+            <!-- Addresses Section -->
+            <div class="content-section" id="addresses">
+                <div class="section-header">
+                    <h2>My Addresses</h2>
+                    <button class="btn primary" id="add-address-btn">
+                        <i class="fas fa-plus"></i>
+                        Add New Address
+                    </button>
+                </div>
+
+                <div class="addresses-list" id="addresses-list">
+                    <!-- Addresses will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Payment Methods Section -->
+            <div class="content-section" id="payment-methods">
+                <div class="section-header">
+                    <h2>Payment Methods</h2>
+                    <button class="btn primary" id="add-payment-btn">
+                        <i class="fas fa-plus"></i>
+                        Add Payment Method
+                    </button>
+                </div>
+
+                <div class="payment-methods-list" id="payment-methods-list">
+                    <!-- Payment methods will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Notifications Section -->
+            <div class="content-section" id="notifications">
+                <div class="section-header">
+                    <h2>Notification Preferences</h2>
+                </div>
+
+                <div class="notification-settings">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Email Notifications</h4>
+                            <p>Receive updates about your rentals via email</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="email-notifications" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>SMS Notifications</h4>
+                            <p>Get text messages for important updates</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="sms-notifications">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Marketing Emails</h4>
+                            <p>Receive promotional offers and new arrivals</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="marketing-emails" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Rental Reminders</h4>
+                            <p>Get reminded about upcoming return dates</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="rental-reminders" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div class="content-section" id="settings">
+                <div class="section-header">
+                    <h2>Account Settings</h2>
+                </div>
+
+                <div class="settings-list">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Change Password</h4>
+                            <p>Update your account password</p>
+                        </div>
+                        <button class="btn secondary" id="change-password-btn">Change</button>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Two-Factor Authentication</h4>
+                            <p>Add an extra layer of security</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="two-factor-auth">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4>Privacy Settings</h4>
+                            <p>Control your data and privacy</p>
+                        </div>
+                        <button class="btn secondary" id="privacy-settings-btn">Manage</button>
+                    </div>
+                    <div class="setting-item danger">
+                        <div class="setting-info">
+                            <h4>Delete Account</h4>
+                            <p>Permanently delete your account and data</p>
+                        </div>
+                        <button class="btn danger" id="delete-account-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>VASTRA RENT</h3>
+                <p>Your premium clothing rental service for any occasion.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="rental-status.html">Rental Status</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Style City</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@vastrarent.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 VASTRA RENT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/shared-inventory.js"></script>
+    <script src="js/rental-integration.js"></script>
+    <script src="js/profile-fixed.js"></script>
+    <script src="js/checkout-fix.js"></script>
+    <script src="js/checkout-enhancement.js"></script>
+    <script src="js/checkout-debug.js"></script>
+    <script src="js/avatar-fix.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>

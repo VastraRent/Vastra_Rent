@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VASTRA RENT - Product Details</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product-details.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="img/vrlogo.jpg" alt="VASTRA RENT Logo">
+                    <h1>VASTRA RENT</h1>
+                </a>
+            </div>
+            <div class="header-nav">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="inventory.html"><i class="fas fa-tshirt"></i> Inventory</a></li>
+                        <li><a href="rental-status.html"><i class="fas fa-clock"></i> Rental Status</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="profile-dropdown">
+                    <a href="#" class="profile-trigger">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="profile-menu">
+                        <div class="profile-header">
+                            <img src="https://via.placeholder.com/40x40?text=U" alt="Profile"
+                                class="profile-avatar-small">
+                            <div class="profile-info-small">
+                                <span class="profile-name-small">John Doe</span>
+                                <span class="profile-email-small">john@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-menu-items">
+                            <a href="profile.html" class="profile-menu-item">
+                                <i class="fas fa-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                            <a href="profile.html?section=rental-history" class="profile-menu-item">
+                                <i class="fas fa-history"></i>
+                                <span>Rental History</span>
+                            </a>
+                            <a href="profile.html?section=cart" class="profile-menu-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>My Cart</span>
+                                <span class="cart-badge" id="header-cart-count">0</span>
+                            </a>
+                            <a href="profile.html?section=wishlist" class="profile-menu-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Wishlist</span>
+                                <span class="wishlist-badge" id="header-wishlist-count">0</span>
+                            </a>
+                            <a href="profile.html?section=addresses" class="profile-menu-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Addresses</span>
+                            </a>
+                            <a href="profile.html?section=payment-methods" class="profile-menu-item">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Payment Methods</span>
+                            </a>
+                            <a href="profile.html?section=settings" class="profile-menu-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </div>
+                        <div class="profile-menu-footer">
+                            <a href="#" id="logout-btn" class="profile-menu-item logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="product-details-container">
+        <div class="breadcrumb">
+            <a href="home.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="inventory.html">Inventory</a>
+            <i class="fas fa-chevron-right"></i>
+            <span id="breadcrumb-product-name">Product Details</span>
+        </div>
+
+        <div class="product-details-content">
+            <div class="product-images">
+                <div class="main-image product-image-container">
+                    <img id="main-product-image" src="img/dress1.jpg" alt="Product Image">
+                    <div id="image-zoom-container"></div>
+                    <div class="image-overlay">
+                        <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
+                    </div>
+                </div>
+                <div class="thumbnail-images" id="product-thumbnails">
+                    <div class="thumbnail active" style="background-image: url('img/dress1.jpg');"
+                        data-image="img/dress1.jpg"></div>
+                    <div class="thumbnail" style="background-image: url('img/dress1.jpg');" data-image="img/dress1.jpg">
+                    </div>
+                    <div class="thumbnail" style="background-image: url('img/dress1.jpg');" data-image="img/dress1.jpg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <div class="product-header">
+                    <h1 id="product-title">Designer Evening Gown</h1>
+                    <div class="product-rating">
+                        <div class="stars" id="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-text" id="product-reviews">(4.5/5 - 24 reviews)</span>
+                    </div>
+                </div>
+
+                <div class="product-pricing">
+                    <div class="rental-price">
+                        <span class="price-label">Rental Price:</span>
+                        <span class="price" id="product-price">₹1800</span>
+                        <span class="price-period">/day</span>
+                    </div>
+                    <div class="retail-price">
+                        <span class="retail-label">Retail Value:</span>
+                        <span class="retail-value" id="product-retail-price">₹12000</span>
+                    </div>
+                    <div class="savings">
+                        <span class="savings-text" id="savings-amount">Save up to 85% with rental!</span>
+                    </div>
+                </div>
+
+                <div class="product-details">
+                    <h3>Product Details</h3>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span class="detail-value" id="product-category">Suit</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Size:</span>
+                            <span class="detail-value" id="product-size">M</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Color:</span>
+                            <span class="detail-value" id="product-color">Black</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Material:</span>
+                            <span class="detail-value" id="product-material">Silk & Chiffon</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Brand:</span>
+                            <span class="detail-value" id="product-brand">Designer Collection</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Condition:</span>
+                            <span class="detail-value" id="product-condition">Excellent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-description">
+                    <h3>Description</h3>
+                    <p id="product-description">
+                        Elegant black evening gown perfect for formal events and galas. This stunning piece features
+                        intricate beadwork,
+                        a flattering silhouette, and premium fabric that drapes beautifully. Perfect for weddings,
+                        galas,
+                        red carpet events, and other special occasions.
+                    </p>
+                </div>
+
+                <div class="size-guide">
+                    <h3>Size Guide</h3>
+                    <div class="size-chart">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Size</th>
+                                    <th>Bust</th>
+                                    <th>Waist</th>
+                                    <th>Hips</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="size-row" data-size="XS">
+                                    <td>XS</td>
+                                    <td>32"</td>
+                                    <td>24"</td>
+                                    <td>34"</td>
+                                </tr>
+                                <tr class="size-row" data-size="S">
+                                    <td>S</td>
+                                    <td>34"</td>
+                                    <td>26"</td>
+                                    <td>36"</td>
+                                </tr>
+                                <tr class="size-row active" data-size="M">
+                                    <td>M</td>
+                                    <td>36"</td>
+                                    <td>28"</td>
+                                    <td>38"</td>
+                                </tr>
+                                <tr class="size-row" data-size="L">
+                                    <td>L</td>
+                                    <td>38"</td>
+                                    <td>30"</td>
+                                    <td>40"</td>
+                                </tr>
+                                <tr class="size-row" data-size="XL">
+                                    <td>XL</td>
+                                    <td>40"</td>
+                                    <td>32"</td>
+                                    <td>42"</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="availability-status">
+                    <div class="status-indicator available" id="availability-status">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="product-availability">Available for Rent</span>
+                    </div>
+                    <div class="next-available" id="next-available" style="display: none;">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Next available: <strong>Dec 25, 2023</strong></span>
+                    </div>
+                </div>
+
+                <div class="rental-options">
+                    <h3>Rental Options</h3>
+                    <div class="rental-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="duration-select">Select Duration:</label>
+                                <select id="duration-select">
+                                    <option value="1">1 Day - ₹1800</option>
+                                    <option value="2">2 Days - ₹3400</option>
+                                    <option value="3">3 Days - ₹4800</option>
+                                    <option value="7">1 Week - ₹11200</option>
+                                    <option value="14">2 Weeks - ₹20000</option>
+                                    <option value="30">1 Month - ₹36000</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="size-select">Size:</label>
+                                <select id="size-select">
+                                    <option value="XS">XS</option>
+                                    <option value="S">S</option>
+                                    <option value="M" selected>M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="start-date">Start Date:</label>
+                                <input type="date" id="start-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="end-date">End Date:</label>
+                                <input type="date" id="end-date" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" id="quantity" min="1" max="5" value="1">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="special-requests">Special Requests (Optional):</label>
+                            <textarea id="special-requests" placeholder="Any special requests or notes..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="cost-summary">
+                        <div class="cost-breakdown">
+                            <div class="cost-item">
+                                <span>Duration:</span>
+                                <span><span id="rental-days">1</span> day(s)</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Rental Fee:</span>
+                                <span id="rental-fee">₹1800.00</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Damage Protection:</span>
+                                <span id="damage-protection">₹600.00</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Delivery Fee:</span>
+                                <span id="delivery-fee">₹400.00</span>
+                            </div>
+                            <div class="cost-item savings">
+                                <span>You Save:</span>
+                                <span id="savings-amount">₹9200 (75%)</span>
+                            </div>
+                            <div class="cost-item total">
+                                <span>Total Cost:</span>
+                                <span id="total-cost">₹2800.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn primary rent-now-btn" id="rent-now-btn">
+                        <i class="fas fa-calendar-check"></i>
+                        Rent Now
+                    </button>
+                    <button class="btn secondary add-to-cart-btn" id="add-to-cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        Add to Cart
+                    </button>
+                    <button class="btn wishlist-btn" id="add-to-wishlist-btn">
+                        <i class="far fa-heart"></i>
+                        Add to Wishlist
+                    </button>
+                </div>
+
+                <div class="share-section">
+                    <h4>Share this product:</h4>
+                    <div class="share-buttons">
+                        <button class="share-btn share-facebook" data-platform="facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button class="share-btn share-twitter" data-platform="twitter">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                        <button class="share-btn share-pinterest" data-platform="pinterest">
+                            <i class="fab fa-pinterest"></i>
+                        </button>
+                        <button class="share-btn share-email" data-platform="email">
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="additional-info">
+            <div class="info-tabs">
+                <button class="tab-btn active" data-tab="care-instructions">Care Instructions</button>
+                <button class="tab-btn" data-tab="rental-policy">Rental Policy</button>
+                <button class="tab-btn" data-tab="reviews">Reviews (24)</button>
+            </div>
+
+            <div class="tab-content active" id="care-instructions">
+                <h3>Care Instructions</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Professional dry cleaning only</li>
+                    <li><i class="fas fa-check"></i> Store on padded hangers</li>
+                    <li><i class="fas fa-check"></i> Avoid direct sunlight</li>
+                    <li><i class="fas fa-check"></i> Handle with care - delicate beadwork</li>
+                    <li><i class="fas fa-check"></i> Return in original condition</li>
+                </ul>
+            </div>
+
+            <div class="tab-content" id="rental-policy">
+                <h3>Rental Policy</h3>
+                <ul>
+                    <li><i class="fas fa-info-circle"></i> Minimum rental period: 1 day</li>
+                    <li><i class="fas fa-info-circle"></i> Free delivery for rentals over ₹2000</li>
+                    <li><i class="fas fa-info-circle"></i> Damage protection included</li>
+                    <li><i class="fas fa-info-circle"></i> Late return fee: ₹1000/day</li>
+                    <li><i class="fas fa-info-circle"></i> Cancellation allowed up to 24 hours before</li>
+                </ul>
+            </div>
+
+            <div class="tab-content" id="reviews">
+                <div class="reviews-header">
+                    <h3>Customer Reviews</h3>
+                    <button class="btn secondary" id="write-review-btn">
+                        <i class="fas fa-edit"></i>
+                        Write a Review
+                    </button>
+                </div>
+
+                <form id="review-form" style="display: none;">
+                    <h4>Write Your Review</h4>
+                    <div class="rating-input">
+                        <label>Your Rating:</label>
+                        <div class="rating-stars">
+                            <i class="far fa-star rating-star" data-rating="1"></i>
+                            <i class="far fa-star rating-star" data-rating="2"></i>
+                            <i class="far fa-star rating-star" data-rating="3"></i>
+                            <i class="far fa-star rating-star" data-rating="4"></i>
+                            <i class="far fa-star rating-star" data-rating="5"></i>
+                        </div>
+                        <input type="hidden" id="rating-value" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="review-title">Review Title:</label>
+                        <input type="text" id="review-title" placeholder="Give your review a title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-comment">Your Review:</label>
+                        <textarea id="review-comment" placeholder="Share your experience with this product..."
+                            required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn secondary"
+                            onclick="document.getElementById('review-form').style.display='none'">Cancel</button>
+                        <button type="submit" class="btn primary">Submit Review</button>
+                    </div>
+                </form>
+
+                <div class="reviews-container" id="product-reviews-list">
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Sarah M."
+                                    class="review-avatar">
+                                <div>
+                                    <strong>Sarah M.</strong>
+                                    <div class="review-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="review-date">2 weeks ago</span>
+                        </div>
+                        <div class="review-content">
+                            <h5>Absolutely Perfect!</h5>
+                            <p class="review-text">
+                                "Absolutely stunning dress! Perfect fit and the quality is amazing.
+                                Got so many compliments at the gala. Will definitely rent again!"
+                            </p>
+                        </div>
+                        <div class="review-footer">
+                            <button class="review-helpful-btn" data-review-id="1">
+                                <i class="far fa-thumbs-up"></i> Helpful (12)
+                            </button>
+                            <button class="review-reply-btn" data-review-id="1">
+                                <i class="far fa-comment"></i> Reply
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Emily R."
+                                    class="review-avatar">
+                                <div>
+                                    <strong>Emily R.</strong>
+                                    <div class="review-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="review-date">1 month ago</span>
+                        </div>
+                        <div class="review-content">
+                            <h5>Great Quality</h5>
+                            <p class="review-text">
+                                "Beautiful dress, exactly as pictured. The delivery was prompt and the dress was in
+                                perfect
+                                condition. Highly recommend for formal events!"
+                            </p>
+                        </div>
+                        <div class="review-footer">
+                            <button class="review-helpful-btn" data-review-id="2">
+                                <i class="far fa-thumbs-up"></i> Helpful (8)
+                            </button>
+                            <button class="review-reply-btn" data-review-id="2">
+                                <i class="far fa-comment"></i> Reply
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="related-products">
+            <h2>You Might Also Like</h2>
+            <div class="related-grid" id="related-products">
+                <div class="related-product">
+                    <a href="product-details.html?id=6">
+                        <div class="related-product-image" style="background-image: url('img/dress2.jpg');"></div>
+                        <h4>Red Carpet Gown</h4>
+                        <p class="related-product-price">₹2200/day</p>
+                        <div class="related-product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(32)</span>
+                        </div>
+                    </a>
+                    <button class="quick-view-btn" data-product-id="6">Quick View</button>
+                </div>
+                <div class="related-product">
+                    <a href="product-details.html?id=4">
+                        <div class="related-product-image" style="background-image: url('img/party1.jpg');"></div>
+                        <h4>Sequin Party Dress</h4>
+                        <p class="related-product-price">₹1600/day</p>
+                        <div class="related-product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(21)</span>
+                        </div>
+                    </a>
+                    <button class="quick-view-btn" data-product-id="4">Quick View</button>
+                </div>
+                <div class="related-product">
+                    <a href="product-details.html?id=3">
+                        <div class="related-product-image" style="background-image: url('img/casual1.jpg');"></div>
+                        <h4>Casual Weekend Set</h4>
+                        <p class="related-product-price">₹1200/day</p>
+                        <div class="related-product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(15)</span>
+                        </div>
+                    </a>
+                    <button class="quick-view-btn" data-product-id="3">Quick View</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>VASTRA RENT</h3>
+                <p>Your premium clothing rental service for any occasion.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="rental-status.html">Rental Status</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Style City</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@vastrarent.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 VASTRA RENT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/shared-inventory.js"></script>
+    <script src="js/rental-integration.js"></script>
+    <script src="js/inventory.js"></script>
+    <script src="js/product-details.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+
+</html>

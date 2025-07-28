@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Button Test - VASTRA RENT</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+        }
+        
+        .test-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .test-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #D76D77;
+            margin-bottom: 1rem;
+        }
+        
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .inventory-item {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .inventory-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(215, 109, 119, 0.15);
+        }
+        
+        .item-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #D76D77, #c55a64);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .item-info h3 {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+            font-size: 1.2rem;
+        }
+        
+        .item-info p {
+            margin: 0 0 0.5rem 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .item-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #D76D77;
+            margin: 1rem 0;
+        }
+        
+        .rent-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #D76D77, #c55a64);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .rent-btn:hover {
+            background: linear-gradient(135deg, #c55a64, #b84c56);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(215, 109, 119, 0.3);
+        }
+        
+        .rent-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .test-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn.primary {
+            background: linear-gradient(135deg, #D76D77, #c55a64);
+            color: white;
+        }
+        
+        .btn.secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .debug-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 1rem;
+        }
+        
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1 class="test-title">Rent Button Test</h1>
+            <p>Test the "Rent Now" button functionality to ensure it redirects to product details page</p>
+        </div>
+
+        <div class="inventory-grid">
+            <div class="inventory-item" data-id="1">
+                <div class="item-image">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <div class="item-info">
+                    <h3>Elegant Evening Dress</h3>
+                    <p>Size: M | Category: Dresses</p>
+                    <p>Perfect for special occasions</p>
+                </div>
+                <div class="item-price">₹299/day</div>
+                <button class="rent-btn" data-id="1">
+                    <span>Rent Now</span>
+                </button>
+            </div>
+            
+            <div class="inventory-item" data-id="2">
+                <div class="item-image">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="item-info">
+                    <h3>Formal Blazer</h3>
+                    <p>Size: L | Category: Blazers</p>
+                    <p>Professional business attire</p>
+                </div>
+                <div class="item-price">₹399/day</div>
+                <button class="rent-btn" data-id="2">
+                    <span>Rent Now</span>
+                </button>
+            </div>
+            
+            <div class="inventory-item" data-id="3">
+                <div class="item-image">
+                    <i class="fas fa-female"></i>
+                </div>
+                <div class="item-info">
+                    <h3>Designer Saree</h3>
+                    <p>Size: Free Size | Category: Sarees</p>
+                    <p>Traditional Indian wear</p>
+                </div>
+                <div class="item-price">₹599/day</div>
+                <button class="rent-btn" data-id="3">
+                    <span>Rent Now</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="test-controls">
+            <button onclick="testRentButton(1)" class="btn primary">
+                <i class="fas fa-play"></i>
+                Test Item 1
+            </button>
+            <button onclick="testRentButton(2)" class="btn primary">
+                <i class="fas fa-play"></i>
+                Test Item 2
+            </button>
+            <button onclick="debugRentButtons()" class="btn secondary">
+                <i class="fas fa-bug"></i>
+                Debug Buttons
+            </button>
+            <button onclick="checkLocalStorage()" class="btn secondary">
+                <i class="fas fa-database"></i>
+                Check Storage
+            </button>
+        </div>
+
+        <div id="status-display">
+            <div class="status info">Ready for testing</div>
+        </div>
+
+        <div id="debug-info" class="debug-info">
+Click "Debug Buttons" to see detailed information...
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Sample inventory data for testing
+        const inventoryData = [
+            {
+                id: 1,
+                name: 'Elegant Evening Dress',
+                category: 'Dresses',
+                size: 'M',
+                price: 299,
+                weeklyPrice: 1853,
+                available: true,
+                image: 'img/dress1.jpg',
+                description: 'Perfect for special occasions',
+                gender: 'women'
+            },
+            {
+                id: 2,
+                name: 'Formal Blazer',
+                category: 'Blazers',
+                size: 'L',
+                price: 399,
+                weeklyPrice: 2474,
+                available: true,
+                image: 'img/blazer1.jpg',
+                description: 'Professional business attire',
+                gender: 'men'
+            },
+            {
+                id: 3,
+                name: 'Designer Saree',
+                category: 'Sarees',
+                size: 'Free Size',
+                price: 599,
+                weeklyPrice: 3714,
+                available: true,
+                image: 'img/saree1.jpg',
+                description: 'Traditional Indian wear',
+                gender: 'women'
+            }
+        ];
+
+        // Mock the handleRentClick function from inventory.js
+        function handleRentClick(itemId, button) {
+            const item = inventoryData.find(i => i.id === itemId);
+            if (!item || !item.available) {
+                updateStatus('This item is currently unavailable', 'error');
+                return;
+            }
+
+            console.log('🎯 Rent Now button clicked for item:', item.name);
+
+            // Add visual feedback to button
+            button.style.transform = 'scale(0.95)';
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            button.disabled = true;
+
+            // Store comprehensive item data for product details page
+            const itemData = {
+                ...item,
+                selectedDate: new Date().toISOString().split('T')[0],
+                rentalType: 'daily',
+                source: 'rent-now-button',
+                timestamp: new Date().toISOString()
+            };
+
+            // Store in multiple places for reliability
+            localStorage.setItem('selectedItem', JSON.stringify(itemData));
+            localStorage.setItem('currentItem', JSON.stringify(item));
+            localStorage.setItem('productDetailsItem', JSON.stringify(itemData));
+
+            console.log('💾 Item data stored for product details:', itemData);
+
+            // Show loading notification
+            updateStatus('Opening product details...', 'info');
+
+            // Navigate to product details page with slight delay for UX
+            setTimeout(() => {
+                console.log('🔄 Redirecting to product details page...');
+                
+                try {
+                    // Primary redirect to product details
+                    window.location.href = `product-details.html?id=${itemId}`;
+                } catch (error) {
+                    console.error('❌ Error redirecting to product details:', error);
+                    
+                    // Reset button
+                    button.style.transform = '';
+                    button.innerHTML = '<span>Rent Now</span>';
+                    button.disabled = false;
+                    
+                    updateStatus('Error: Could not redirect to product details', 'error');
+                }
+            }, 500);
+        }
+
+        // Test functions
+        function testRentButton(itemId) {
+            console.log('🧪 Testing rent button for item ID:', itemId);
+            
+            const button = document.querySelector(`[data-id="${itemId}"].rent-btn`);
+            if (button) {
+                console.log('Found rent button, triggering click...');
+                handleRentClick(itemId, button);
+            } else {
+                console.error('Rent button not found for item ID:', itemId);
+                updateStatus(`Rent button not found for item ${itemId}`, 'error');
+            }
+        }
+
+        function debugRentButtons() {
+            console.log('🔍 Debugging rent button functionality...');
+            
+            const rentButtons = document.querySelectorAll('.rent-btn');
+            console.log('Total rent buttons found:', rentButtons.length);
+            
+            const debugInfo = {
+                totalButtons: rentButtons.length,
+                availableItems: inventoryData.filter(item => item.available).length,
+                totalItems: inventoryData.length,
+                buttons: []
+            };
+            
+            rentButtons.forEach((button, index) => {
+                const itemId = button.dataset.id;
+                const isDisabled = button.disabled;
+                const buttonText = button.textContent.trim();
+                
+                debugInfo.buttons.push({
+                    index: index + 1,
+                    itemId,
+                    isDisabled,
+                    buttonText
+                });
+                
+                console.log(`Button ${index + 1}:`, {
+                    itemId,
+                    isDisabled,
+                    buttonText,
+                    element: button
+                });
+            });
+            
+            document.getElementById('debug-info').textContent = JSON.stringify(debugInfo, null, 2);
+            updateStatus('Debug information updated', 'info');
+            
+            return debugInfo;
+        }
+
+        function checkLocalStorage() {
+            const storageInfo = {
+                selectedItem: localStorage.getItem('selectedItem'),
+                currentItem: localStorage.getItem('currentItem'),
+                productDetailsItem: localStorage.getItem('productDetailsItem'),
+                inventoryData: localStorage.getItem('inventoryData')
+            };
+            
+            console.log('📦 LocalStorage contents:', storageInfo);
+            document.getElementById('debug-info').textContent = JSON.stringify(storageInfo, null, 2);
+            updateStatus('Storage information updated', 'info');
+        }
+
+        function updateStatus(message, type) {
+            const statusDisplay = document.getElementById('status-display');
+            statusDisplay.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+
+        // Add event listeners to rent buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('rent-btn') && !e.target.disabled) {
+                e.stopPropagation();
+                const itemId = parseInt(e.target.dataset.id);
+                handleRentClick(itemId, e.target);
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🧪 Rent button test page loaded');
+            updateStatus('Test page loaded - click any "Rent Now" button to test', 'success');
+        });
+    </script>
+</body>
+</html>

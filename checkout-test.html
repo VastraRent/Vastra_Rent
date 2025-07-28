@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Test - VASTRA RENT</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile-animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .test-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #D76D77;
+            margin-bottom: 1rem;
+        }
+        
+        .test-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 12px;
+        }
+        
+        .test-section h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .item-image {
+            width: 60px;
+            height: 60px;
+            background: #D76D77;
+            border-radius: 8px;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .item-info {
+            flex: 1;
+        }
+        
+        .item-info h4 {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+        }
+        
+        .item-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem;
+        }
+        
+        .btn.primary {
+            background: linear-gradient(135deg, #D76D77, #c55a64);
+            color: white;
+        }
+        
+        .btn.secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn.success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .debug-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1 class="test-title">Checkout Functionality Test</h1>
+            <p>Test the cart checkout functionality and payment page redirection</p>
+        </div>
+
+        <div class="test-section">
+            <h3><i class="fas fa-shopping-cart"></i> Sample Cart</h3>
+            <div id="cart-items">
+                <div class="cart-item">
+                    <div class="item-image">1</div>
+                    <div class="item-info">
+                        <h4>Elegant Evening Dress</h4>
+                        <p>Size: M | Price: ₹299/day | Quantity: 1</p>
+                    </div>
+                </div>
+                <div class="cart-item">
+                    <div class="item-image">2</div>
+                    <div class="item-info">
+                        <h4>Formal Blazer</h4>
+                        <p>Size: L | Price: ₹399/day | Quantity: 1</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="checkout-btn" class="btn primary">
+                <i class="fas fa-credit-card"></i>
+                Proceed to Checkout
+            </button>
+        </div>
+
+        <div class="test-section">
+            <h3><i class="fas fa-tools"></i> Test Controls</h3>
+            <button onclick="setupTestCart()" class="btn secondary">
+                <i class="fas fa-plus"></i>
+                Setup Test Cart
+            </button>
+            <button onclick="clearCart()" class="btn secondary">
+                <i class="fas fa-trash"></i>
+                Clear Cart
+            </button>
+            <button onclick="debugCheckout()" class="btn secondary">
+                <i class="fas fa-bug"></i>
+                Debug Checkout
+            </button>
+            <button onclick="manualCheckout()" class="btn success">
+                <i class="fas fa-rocket"></i>
+                Manual Checkout
+            </button>
+        </div>
+
+        <div class="test-section">
+            <h3><i class="fas fa-info-circle"></i> Status</h3>
+            <div id="status-display">
+                <div class="status info">Ready for testing</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3><i class="fas fa-code"></i> Debug Information</h3>
+            <div id="debug-info" class="debug-info">
+Click "Debug Checkout" to see detailed information...
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/profile.js"></script>
+    <script src="js/checkout-enhancement.js"></script>
+    <script>
+        // Test functions
+        function setupTestCart() {
+            const testCart = [
+                {
+                    id: 'test1',
+                    productId: 'dress001',
+                    productName: 'Elegant Evening Dress',
+                    productImage: 'img/dress1.jpg',
+                    name: 'Elegant Evening Dress',
+                    image: 'img/dress1.jpg',
+                    price: 299,
+                    size: 'M',
+                    quantity: 1,
+                    startDate: new Date().toISOString().split('T')[0],
+                    endDate: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+                    days: 1,
+                    category: 'Dresses',
+                    gender: 'women',
+                    available: true
+                },
+                {
+                    id: 'test2',
+                    productId: 'blazer001',
+                    productName: 'Formal Blazer',
+                    productImage: 'img/blazer1.jpg',
+                    name: 'Formal Blazer',
+                    image: 'img/blazer1.jpg',
+                    price: 399,
+                    size: 'L',
+                    quantity: 1,
+                    startDate: new Date().toISOString().split('T')[0],
+                    endDate: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+                    days: 1,
+                    category: 'Blazers',
+                    gender: 'men',
+                    available: true
+                }
+            ];
+
+            localStorage.setItem('rentalCart', JSON.stringify(testCart));
+            updateStatus('Test cart setup complete', 'success');
+            console.log('✅ Test cart setup:', testCart);
+        }
+
+        function clearCart() {
+            localStorage.removeItem('rentalCart');
+            localStorage.removeItem('checkoutCart');
+            localStorage.removeItem('currentRental');
+            localStorage.removeItem('selectedItem');
+            updateStatus('Cart cleared', 'info');
+            console.log('🗑️ Cart cleared');
+        }
+
+        function debugCheckout() {
+            const cart = JSON.parse(localStorage.getItem('rentalCart')) || [];
+            const checkoutBtn = document.getElementById('checkout-btn');
+            
+            const debugInfo = {
+                cartItems: cart.length,
+                cartData: cart,
+                checkoutButton: !!checkoutBtn,
+                buttonText: checkoutBtn ? checkoutBtn.textContent.trim() : 'Not found',
+                buttonDisabled: checkoutBtn ? checkoutBtn.disabled : 'N/A',
+                localStorage: {
+                    rentalCart: !!localStorage.getItem('rentalCart'),
+                    checkoutCart: !!localStorage.getItem('checkoutCart'),
+                    currentRental: !!localStorage.getItem('currentRental')
+                },
+                enhancedCheckout: !!window.enhancedCheckout,
+                manualCheckout: !!window.manualCheckout
+            };
+
+            document.getElementById('debug-info').textContent = JSON.stringify(debugInfo, null, 2);
+            updateStatus('Debug information updated', 'info');
+            console.log('🔍 Debug info:', debugInfo);
+        }
+
+        function manualCheckout() {
+            if (window.manualCheckout) {
+                window.manualCheckout();
+            } else if (window.enhancedCheckout) {
+                window.enhancedCheckout.triggerCheckout();
+            } else {
+                updateStatus('No checkout function available', 'error');
+            }
+        }
+
+        function updateStatus(message, type) {
+            const statusDisplay = document.getElementById('status-display');
+            statusDisplay.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+
+        // Initialize test
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🧪 Checkout test page loaded');
+            
+            // Setup test cart automatically
+            setTimeout(() => {
+                setupTestCart();
+            }, 1000);
+            
+            // Check if enhancement is working
+            setTimeout(() => {
+                if (window.enhancedCheckout) {
+                    updateStatus('Enhanced checkout system loaded', 'success');
+                } else {
+                    updateStatus('Enhanced checkout system not found', 'error');
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

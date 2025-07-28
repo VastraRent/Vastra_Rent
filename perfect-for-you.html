@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect for You - AI Style Recommendations | Vastra Rent</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/perfect-for-you.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="img/vrlogo.jpg" alt="VASTRA RENT Logo">
+                    <h1>VASTRA RENT</h1>
+                </a>
+            </div>
+            <div class="header-nav">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="inventory.html"><i class="fas fa-tshirt"></i> Inventory</a></li>
+                        <li><a href="perfect-for-you.html" class="active"><i class="fas fa-magic"></i> Perfect for You</a></li>
+                        <li><a href="rental-status.html"><i class="fas fa-clock"></i> Rental Status</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="profile-dropdown">
+                    <a href="#" class="profile-trigger">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="profile-menu">
+                        <div class="profile-header">
+                            <img src="https://via.placeholder.com/40x40?text=U" alt="Profile"
+                                class="profile-avatar-small">
+                            <div class="profile-info-small">
+                                <span class="profile-name-small">John Doe</span>
+                                <span class="profile-email-small">john@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-menu-items">
+                            <a href="profile.html" class="profile-menu-item">
+                                <i class="fas fa-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                            <a href="profile.html?section=rental-history" class="profile-menu-item">
+                                <i class="fas fa-history"></i>
+                                <span>Rental History</span>
+                            </a>
+                            <a href="profile.html?section=cart" class="profile-menu-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>My Cart</span>
+                                <span class="cart-badge" id="header-cart-count">0</span>
+                            </a>
+                            <a href="profile.html?section=wishlist" class="profile-menu-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Wishlist</span>
+                                <span class="wishlist-badge" id="header-wishlist-count">0</span>
+                            </a>
+                            <a href="profile.html?section=addresses" class="profile-menu-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Addresses</span>
+                            </a>
+                            <a href="profile.html?section=payment-methods" class="profile-menu-item">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Payment Methods</span>
+                            </a>
+                            <a href="profile.html?section=settings" class="profile-menu-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </div>
+                        <div class="profile-menu-footer">
+                            <a href="#" id="logout-btn" class="profile-menu-item logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Enhanced Hero Section -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1><i class="fas fa-sparkles"></i> Perfect for You</h1>
+                    <p>Discover your perfect outfit with our AI-powered style recommendations</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Happy Customers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">Accuracy Rate</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Outfit Styles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-elements">
+                        <div class="floating-icon"><i class="fas fa-tshirt"></i></div>
+                        <div class="floating-icon"><i class="fas fa-crown"></i></div>
+                        <div class="floating-icon"><i class="fas fa-gem"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="progress-indicator">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-icon"><i class="fas fa-venus-mars"></i></div>
+                    <span>Gender</span>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <span>Occasion</span>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-icon"><i class="fas fa-camera"></i></div>
+                    <span>Photo</span>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-icon"><i class="fas fa-magic"></i></div>
+                    <span>Results</span>
+                </div>
+            </div>
+
+            <!-- Gender Selection Section -->
+            <div class="gender-selection-section">
+                <h2><i class="fas fa-user-friends"></i> Select Your Gender</h2>
+                <p>Help us provide more personalized recommendations</p>
+                <div class="gender-options">
+                    <div class="gender-option" data-gender="male">
+                        <div class="gender-icon">
+                            <i class="fas fa-mars"></i>
+                        </div>
+                        <span>Male</span>
+                        <p>Sherwanis, Suits, Kurtas</p>
+                    </div>
+                    <div class="gender-option" data-gender="female">
+                        <div class="gender-icon">
+                            <i class="fas fa-venus"></i>
+                        </div>
+                        <span>Female</span>
+                        <p>Lehengas, Sarees, Anarkalis</p>
+                    </div>
+                    <div class="gender-option" data-gender="unisex">
+                        <div class="gender-icon">
+                            <i class="fas fa-venus-mars"></i>
+                        </div>
+                        <span>Unisex</span>
+                        <p>Blazers, Kurta</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Occasion Selection Section -->
+            <div class="occasion-selection-section">
+                <h2><i class="fas fa-star"></i> Select Occasion</h2>
+                <p>Choose the occasion you're dressing for to get better recommendations</p>
+                <div class="occasion-options">
+                    <div class="occasion-option" data-occasion="wedding">
+                        <div class="occasion-icon">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <span>Wedding</span>
+                        <p>Traditional ceremonies and celebrations</p>
+                        <div class="occasion-badge">Premium</div>
+                    </div>
+                    <div class="occasion-option" data-occasion="party">
+                        <div class="occasion-icon">
+                            <i class="fas fa-glass-cheers"></i>
+                        </div>
+                        <span>Party</span>
+                        <p>Social gatherings and celebrations</p>
+                        <div class="occasion-badge">Popular</div>
+                    </div>
+                    <div class="occasion-option" data-occasion="festival">
+                        <div class="occasion-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Festival</span>
+                        <p>Cultural and religious festivals</p>
+                        <div class="occasion-badge">Traditional</div>
+                    </div>
+                    <div class="occasion-option" data-occasion="formal">
+                        <div class="occasion-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <span>Formal</span>
+                        <p>Business meetings and formal events</p>
+                        <div class="occasion-badge">Professional</div>
+                    </div>
+                    <div class="occasion-option" data-occasion="casual">
+                        <div class="occasion-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <span>Casual</span>
+                        <p>Everyday wear and relaxed outings</p>
+                        <div class="occasion-badge">Comfort</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Upload Section -->
+            <div class="upload-section">
+                <div class="upload-container">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">📸</div>
+                        <h3>Upload Your Photo</h3>
+                        <p>Our AI will analyze your photo and suggest perfect outfits for you</p>
+                        <div class="upload-features">
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure & Private</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>Instant Analysis</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-brain"></i>
+                                <span>AI Powered</span>
+                            </div>
+                        </div>
+                        <input type="file" id="photoInput" accept="image/*" hidden>
+                        <button class="upload-btn">Choose Photo</button>
+                        <div class="upload-tips">
+                            <p><i class="fas fa-lightbulb"></i> Tips for best results:</p>
+                            <ul>
+                                <li>Use good lighting</li>
+                                <li>Face the camera directly</li>
+                                <li>Avoid busy backgrounds</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-container" id="previewContainer">
+                        <div class="preview-header">
+                            <h3><i class="fas fa-eye"></i> Photo Preview</h3>
+                            <div class="selection-summary">
+                                <span class="selected-gender" id="selectedGenderDisplay"></span>
+                                <span class="selected-occasion" id="selectedOccasionDisplay"></span>
+                            </div>
+                        </div>
+                        <div class="preview-image-container">
+                            <img id="previewImage" alt="Preview">
+                            <div class="image-overlay">
+                                <button class="overlay-btn" onclick="clearAll()">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="preview-actions">
+                            <button class="btn-secondary" onclick="clearAll()">
+                                <i class="fas fa-redo"></i> Start Over
+                            </button>
+                            <button class="btn-primary" onclick="analyzePhoto()">
+                                <i class="fas fa-magic"></i> Analyze & Get Suggestions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Loading Section -->
+            <div class="loading-section" id="loadingSection">
+                <div class="loading-container">
+                    <div class="loading-animation">
+                        <div class="loading-spinner"></div>
+                        <div class="loading-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <h3>Analyzing Your Style...</h3>
+                    <p id="loadingText">Our AI is analyzing your photo and finding perfect matches...</p>
+                    <div class="loading-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Results Section -->
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h2><i class="fas fa-trophy"></i> Your Perfect Matches</h2>
+                    <div class="results-controls">
+                        <div class="filter-controls">
+                            <button class="filter-btn" id="filterToggle">
+                                <i class="fas fa-filter"></i> Filters
+                            </button>
+                            <div class="sort-dropdown">
+                                <select id="sortSelect">
+                                    <option value="match">Best Match</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="popular">Most Popular</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="view-btn" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Panel -->
+                <div class="filter-panel" id="filterPanel">
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <div class="price-range">
+                            <input type="range" id="priceMin" min="0" max="3000" value="0">
+                            <input type="range" id="priceMax" min="0" max="3000" value="3000">
+                            <div class="price-labels">
+                                <span id="priceMinLabel">₹0</span>
+                                <span id="priceMaxLabel">₹3000</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Style</h4>
+                        <div class="filter-options">
+                            <label><input type="checkbox" value="traditional"> Traditional</label>
+                            <label><input type="checkbox" value="modern"> Modern</label>
+                            <label><input type="checkbox" value="fusion"> Fusion</label>
+                            <label><input type="checkbox" value="classic"> Classic</label>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Colors</h4>
+                        <div class="color-filters">
+                            <div class="color-option" data-color="red"></div>
+                            <div class="color-option" data-color="blue"></div>
+                            <div class="color-option" data-color="green"></div>
+                            <div class="color-option" data-color="gold"></div>
+                            <div class="color-option" data-color="black"></div>
+                            <div class="color-option" data-color="white"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analysis-card">
+                    <h3><i class="fas fa-chart-line"></i> Style Analysis</h3>
+                    <div id="analysisResults"></div>
+                </div>
+                
+                <div class="recommendations-grid" id="recommendationsGrid">
+                    <!-- Recommendations will be populated here -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="pagination">
+                    <button class="page-btn" id="prevPage"><i class="fas fa-chevron-left"></i></button>
+                    <div class="page-numbers" id="pageNumbers"></div>
+                    <button class="page-btn" id="nextPage"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Quick View</h3>
+                <button class="modal-close" onclick="closeQuickView()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="quickViewContent">
+                <!-- Quick view content will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/shared-inventory.js"></script>
+    <script src="js/inventory.js"></script> <!-- Load inventory.js first -->
+    <script src="js/perfect-for-you.js"></script> <!-- Then perfect-for-you.js -->
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
