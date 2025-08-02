@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/wishlist-fix.css">
     <link rel="stylesheet" href="css/avatar-fix.css">
-    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/chatbot-integrated.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
@@ -495,6 +495,116 @@
     <script src="js/checkout-enhancement.js"></script>
     <script src="js/checkout-debug.js"></script>
     <script src="js/avatar-fix.js"></script>
-    <script src="js/chatbot.js"></script>
+    
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <!-- Chat Toggle Button -->
+        <div id="chat-toggle" class="chat-toggle" onclick="toggleChat()">
+            <i class="fas fa-comments chat-icon"></i>
+            <i class="fas fa-times close-icon"></i>
+            <div class="notification-dot" id="notification-dot"></div>
+        </div>
+        
+        <!-- Chat Window -->
+        <div id="chat-window" class="chat-window">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-header-content">
+                    <div class="bot-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="bot-info">
+                        <h4>Vastra Rent AI</h4>
+                        <p>Powered by Dolphin Mistral AI</p>
+                    </div>
+                    <div class="chat-controls">
+                        <button class="control-btn" onclick="minimizeChat()" title="Minimize">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button class="control-btn" onclick="closeChat()" title="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="status-bar">
+                    <div class="online-status">
+                        <span class="status-dot"></span>
+                        <span>Online - Ready to help!</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Messages -->
+            <div id="chat-messages" class="chat-messages">
+                <!-- Welcome Message -->
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-header">Vastra Rent AI Assistant</div>
+                        <div class="message-text">
+                            👋 I can help you manage your profile and rentals! 
+                            
+                            I can assist with:
+                            📋 Your rental history and status
+                            💳 Payment and billing questions
+                            📍 Address and delivery preferences
+                            👤 Account settings and preferences
+                            🛒 Cart and wishlist management
+                            
+                            What would you like help with?
+                        </div>
+                        <div class="quick-suggestions">
+                            <button class="suggestion-btn" onclick="sendMessage('Show me my rental history')">
+                                <i class="fas fa-history"></i> Rental History
+                            </button>
+                            <button class="suggestion-btn" onclick="sendMessage('Help with account settings')">
+                                <i class="fas fa-cog"></i> Account Help
+                            </button>
+                            <button class="suggestion-btn" onclick="sendMessage('Payment and billing questions')">
+                                <i class="fas fa-credit-card"></i> Billing Help
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Typing Indicator -->
+            <div id="typing-indicator" class="typing-indicator" style="display: none;">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="typing-content">
+                    <div class="typing-text">AI is thinking</div>
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Input -->
+            <div class="chat-input">
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        id="message-input" 
+                        placeholder="Ask about your account, rentals, or settings..."
+                        maxlength="500"
+                    >
+                    <button id="send-button" onclick="handleSendMessage()" disabled>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <small>💡 Try: "When is my next rental due?" or "How do I update my address?"</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/chatbot-widget.js"></script>
 </body>
 </html>

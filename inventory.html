@@ -7,7 +7,7 @@
     <title>VASTRA RENT - Inventory</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/inventory.css">
-    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/chatbot-integrated.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
@@ -208,7 +208,116 @@
     <script src="js/main.js"></script>
     <script src="js/shared-inventory.js"></script>
     <script src="js/inventory.js"></script>
-    <script src="js/chatbot.js"></script>
+    
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <!-- Chat Toggle Button -->
+        <div id="chat-toggle" class="chat-toggle" onclick="toggleChat()">
+            <i class="fas fa-comments chat-icon"></i>
+            <i class="fas fa-times close-icon"></i>
+            <div class="notification-dot" id="notification-dot"></div>
+        </div>
+        
+        <!-- Chat Window -->
+        <div id="chat-window" class="chat-window">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-header-content">
+                    <div class="bot-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="bot-info">
+                        <h4>Vastra Rent AI</h4>
+                        <p>Powered by Dolphin Mistral AI</p>
+                    </div>
+                    <div class="chat-controls">
+                        <button class="control-btn" onclick="minimizeChat()" title="Minimize">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button class="control-btn" onclick="closeChat()" title="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="status-bar">
+                    <div class="online-status">
+                        <span class="status-dot"></span>
+                        <span>Online - Ready to help!</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Messages -->
+            <div id="chat-messages" class="chat-messages">
+                <!-- Welcome Message -->
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-header">Vastra Rent AI Assistant</div>
+                        <div class="message-text">
+                            👋 I can see you're browsing our inventory! I have complete knowledge of every item, size, and price. 
+                            
+                            Need help finding something specific?
+                            ✨ Filter by occasion or style
+                            💰 Find items in your budget
+                            📏 Check size availability
+                            🎨 Get styling suggestions
+                            
+                            What are you looking for today?
+                        </div>
+                        <div class="quick-suggestions">
+                            <button class="suggestion-btn" onclick="sendMessage('Show me items under ₹3000')">
+                                <i class="fas fa-tag"></i> Budget Options
+                            </button>
+                            <button class="suggestion-btn" onclick="sendMessage('What sizes are available for this category?')">
+                                <i class="fas fa-ruler"></i> Size Guide
+                            </button>
+                            <button class="suggestion-btn" onclick="sendMessage('Help me find the perfect outfit')">
+                                <i class="fas fa-magic"></i> Style Help
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Typing Indicator -->
+            <div id="typing-indicator" class="typing-indicator" style="display: none;">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="typing-content">
+                    <div class="typing-text">AI is thinking</div>
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Input -->
+            <div class="chat-input">
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        id="message-input" 
+                        placeholder="Ask about specific items, sizes, or get styling advice..."
+                        maxlength="500"
+                    >
+                    <button id="send-button" onclick="handleSendMessage()" disabled>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <small>💡 Try: "Show me lehengas in size M" or "What goes well with this outfit?"</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/chatbot-widget.js"></script>
 </body>
 
 </html>

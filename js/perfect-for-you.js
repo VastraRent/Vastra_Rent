@@ -2,7 +2,7 @@
 
 class AIStyleAnalyzer {
     constructor() {
-        this.apiKey = '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';
+        this.apiKey = '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';
         this.apiEndpoint = 'https://openrouter.ai/api/v1/chat/completions';
         this.currentImageData = null;
         this.selectedOccasion = null;
