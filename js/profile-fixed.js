@@ -207,12 +207,12 @@ function initializeProfile() {
 
         // Fill form fields
         const formFields = {
-            'first-name': storedUser.firstName,
-            'last-name': storedUser.lastName,
-            'email': storedUser.email,
+            'first-name': storedUser.firstName || '',
+            'last-name': storedUser.lastName || '',
+            'email': storedUser.email || '',
             'phone': storedUser.phone || '+1 (555) 123-4567',
-            'birth-date': storedUser.birthDate || '1990-01-01',
-            'gender': storedUser.gender,
+            'birth-date': storedUser.birthDate || '',
+            'gender': storedUser.gender || '',
             'bio': storedUser.bio || 'Fashion enthusiast exploring new styles with VASTRA RENT.'
         };
 
@@ -220,6 +220,7 @@ function initializeProfile() {
             const element = document.getElementById(fieldId);
             if (element) {
                 element.value = formFields[fieldId];
+                console.log(`Set ${fieldId} to: ${formFields[fieldId]}`);
             }
         });
     } catch (error) {
@@ -354,6 +355,7 @@ function initializeProfileForm() {
                         fullName: updatedUser.firstName + ' ' + updatedUser.lastName,
                         email: updatedUser.email,
                         phone: updatedUser.phone,
+                        birthDate: updatedUser.birthDate,
                         gender: updatedUser.gender,
                         avatar: updatedUser.avatar
                     };

@@ -164,7 +164,7 @@ function handleLogin(event) {
                 fullName: `${formData.firstName} ${formData.lastName}`,
                 gender: formData.gender,
                 loginId: formData.loginId,
-                email: `${formData.loginId}@vastrarent.com`,
+                email: `${formData.loginId}`,
                 phone: '+1 (555) 123-4567',
                 joinDate: new Date().toISOString().split('T')[0],
                 membershipType: 'Gold',

@@ -2259,3 +2259,92 @@ html {
 .stagger-4 { animation-delay: 0.4s !important; }
 .stagger-5 { animation-delay: 0.5s !important; }
 .stagger-6 { animation-delay: 0.6s !important; }
+
+/* Fix for chatbot positioning on home page */
+.openrouter-chatbot {
+    z-index: 10001 !important;
+}
+
+/* Ensure no conflicts with home page elements */
+.openrouter-chatbot * {
+    box-sizing: border-box;
+}
+
+/* Fix for any potential overflow issues */
+body {
+    overflow-x: hidden;
+}
+
+/* Ensure proper stacking context */
+.hero,
+.features,
+.trending,
+.testimonials {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fix for mobile responsiveness */
+@media (max-width: 768px) {
+    .openrouter-chatbot {
+        bottom: 15px !important;
+        right: 15px !important;
+    }
+}
+
+/* Animation Performance Fixes */
+.animate-slide-left,
+.animate-slide-right,
+.animate-slide-up,
+.animate-slide-down,
+.animate-zoom-in,
+.animate-flip-x,
+.animate-flip-y,
+.animate-rotate-in {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Prevent animation conflicts */
+.animate-slide-left.animate-in,
+.animate-slide-right.animate-in,
+.animate-slide-up.animate-in,
+.animate-slide-down.animate-in,
+.animate-zoom-in.animate-in,
+.animate-flip-x.animate-in,
+.animate-flip-y.animate-in,
+.animate-rotate-in.animate-in {
+    will-change: auto;
+}
+
+/* Fix for category cards animation glitch */
+.category-card {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Smooth transitions for all interactive elements */
+.feature-card,
+.item-card,
+.category-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* Prevent layout shifts during animations */
+.hero {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

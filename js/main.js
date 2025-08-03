@@ -288,14 +288,17 @@ document.addEventListener('DOMContentLoaded', function () {
         return [year, month, day].join('-');
     };
 
-    // Set minimum date for date inputs to today
+    // Set minimum date for date inputs to today (except birth-date)
     const dateInputs = document.querySelectorAll('input[type="date"]');
     if (dateInputs.length > 0) {
         const today = new Date();
         const formattedDate = formatDateForInput(today);
 
         dateInputs.forEach(input => {
-            input.min = formattedDate;
+            // Don't set minimum date for birth-date input - allow any date
+            if (input.id !== 'birth-date') {
+                input.min = formattedDate;
+            }
         });
     }
 });

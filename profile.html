@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,11 @@
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/wishlist-fix.css">
     <link rel="stylesheet" href="css/avatar-fix.css">
-    <link rel="stylesheet" href="css/chatbot-integrated.css">
+    <link rel="stylesheet" href="css/openrouter-chatbot.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -26,10 +28,10 @@
                     <ul>
                         <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
                         <li><a href="inventory.html"><i class="fas fa-tshirt"></i> Inventory</a></li>
-                         <li><a href="perfect-for-you.html"><i class="fas fa-magic"></i> Perfect for You</a></li>
+                        <li><a href="perfect-for-you.html"><i class="fas fa-magic"></i> Perfect for You</a></li>
                         <li><a href="rental-status.html"><i class="fas fa-clock"></i> Rental Status</a></li>
                         <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-                        
+
                     </ul>
                 </nav>
                 <div class="profile-dropdown">
@@ -40,7 +42,8 @@
                     </a>
                     <div class="profile-menu">
                         <div class="profile-header">
-                            <img src="https://via.placeholder.com/40x40?text=U" alt="Profile" class="profile-avatar-small">
+                            <img src="https://via.placeholder.com/40x40?text=U" alt="Profile"
+                                class="profile-avatar-small">
                             <div class="profile-info-small">
                                 <span class="profile-name-small">John Doe</span>
                                 <span class="profile-email-small">john@email.com</span>
@@ -98,7 +101,8 @@
             <div class="profile-card">
                 <div class="profile-avatar">
                     <img id="profile-avatar" src="https://via.placeholder.com/120x120?text=User" alt="Profile Picture">
-                    <button class="avatar-edit-btn" id="avatar-edit-btn">
+                    <input type="file" id="avatar-file-input" accept="image/*" style="display: none;">
+                    <button class="avatar-edit-btn" id="avatar-edit-btn" title="Change Profile Photo">
                         <i class="fas fa-camera"></i>
                     </button>
                     <button class="avatar-save-btn" id="avatar-save-btn" style="display: none;">
@@ -180,7 +184,8 @@
                         <label>Profile Photo</label>
                         <div class="profile-photo-container">
                             <div class="profile-photo-display">
-                                <img id="profile-form-avatar" src="https://via.placeholder.com/100x100?text=User" alt="Profile Photo">
+                                <img id="profile-form-avatar" src="https://via.placeholder.com/100x100?text=User"
+                                    alt="Profile Photo">
                                 <div class="photo-overlay">
                                     <button type="button" class="change-photo-btn" id="change-photo-btn">
                                         <i class="fas fa-camera"></i>
@@ -218,7 +223,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="birth-date">Date of Birth</label>
-                            <input type="date" id="birth-date" value="1990-01-15" disabled>
+                            <input type="date" id="birth-date" value="" min="1900-01-01" max="2100-12-31" disabled>
                         </div>
                         <div class="form-group">
                             <label for="gender">Gender</label>
@@ -232,7 +237,8 @@
                     </div>
                     <div class="form-group">
                         <label for="bio">Bio</label>
-                        <textarea id="bio" rows="3" disabled>Fashion enthusiast who loves trying new styles without the commitment of buying.</textarea>
+                        <textarea id="bio" rows="3"
+                            disabled>Fashion enthusiast who loves trying new styles without the commitment of buying.</textarea>
                     </div>
                     <div class="form-actions" id="form-actions" style="display: none;">
                         <button type="submit" class="btn primary">Save Changes</button>
@@ -465,7 +471,7 @@
                     <li><a href="about.html">About Us</a></li>
                 </ul>
             </div>
-             <div class="footer-section">
+            <div class="footer-section">
                 <h3>Contact Us</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Vadodara<br>Gujrat, IN 390019</p>
                 <p><i class="fas fa-phone"></i>+91 9898471702 / +91 7984291916 / +91 9574946483</p>
@@ -495,8 +501,217 @@
     <script src="js/checkout-enhancement.js"></script>
     <script src="js/checkout-debug.js"></script>
     <script src="js/avatar-fix.js"></script>
-    
-    <!-- Chatbot Widget -->
+    <script src="js/avatar-conflict-resolver.js"></script>
+    <script src="js/chatbot-inventory-data.js"></script>
+    <script src="js/openrouter-chatbot.js"></script>
+
+    <!-- Date Input Fix -->
+    <script>
+        // Remove any date restrictions and ensure proper date handling
+        document.addEventListener('DOMContentLoaded', function () {
+            const birthDateInput = document.getElementById('birth-date');
+            if (birthDateInput) {
+                // Remove any existing min/max attributes that might be set dynamically
+                birthDateInput.removeAttribute('min');
+                birthDateInput.removeAttribute('max');
+                // Set wide range to allow any reasonable date
+                birthDateInput.setAttribute('min', '1900-01-01');
+                birthDateInput.setAttribute('max', '2100-12-31');
+                console.log('✅ Date restrictions removed from birth-date input');
+
+                // Load saved birth date from localStorage
+                setTimeout(() => {
+                    try {
+                        const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+                        const userData = JSON.parse(localStorage.getItem('userData')) || {};
+                        const savedBirthDate = currentUser.birthDate || userData.birthDate;
+
+                        if (savedBirthDate && savedBirthDate !== '1990-01-01' && savedBirthDate !== '1992-03-15') {
+                            birthDateInput.value = savedBirthDate;
+                            console.log('✅ Loaded saved birth date:', savedBirthDate);
+                        }
+                    } catch (error) {
+                        console.warn('Could not load saved birth date:', error);
+                    }
+                }, 1000);
+
+                // Add event listener to save birth date when changed
+                birthDateInput.addEventListener('change', function () {
+                    const newDate = this.value;
+                    if (newDate) {
+                        try {
+                            // Update currentUser
+                            const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+                            currentUser.birthDate = newDate;
+                            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+                            // Update userData
+                            const userData = JSON.parse(localStorage.getItem('userData')) || {};
+                            userData.birthDate = newDate;
+                            localStorage.setItem('userData', JSON.stringify(userData));
+
+                            console.log('✅ Birth date saved:', newDate);
+                        } catch (error) {
+                            console.error('Error saving birth date:', error);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Inline Avatar Upload Fix -->
+    <script>
+        // Ensure single avatar upload functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('🔧 Inline avatar upload fix loading...');
+
+            // Wait for other scripts to load
+            setTimeout(function () {
+                // Simple, reliable avatar upload function
+                function reliableAvatarUpload() {
+                    console.log('📁 Reliable avatar upload triggered');
+
+                    // Create file input
+                    const input = document.createElement('input');
+                    input.type = 'file';
+                    input.accept = 'image/*';
+                    input.style.display = 'none';
+
+                    // Handle file selection
+                    input.addEventListener('change', function (e) {
+                        const file = e.target.files[0];
+                        if (!file) return;
+
+                        console.log('📷 File selected:', file.name);
+
+                        // Basic validation
+                        if (!file.type.startsWith('image/')) {
+                            alert('Please select an image file');
+                            return;
+                        }
+
+                        if (file.size > 10 * 1024 * 1024) {
+                            alert('File size must be less than 10MB');
+                            return;
+                        }
+
+                        // Show loading
+                        const avatars = document.querySelectorAll('#profile-avatar, #profile-form-avatar');
+                        avatars.forEach(avatar => {
+                            if (avatar) avatar.style.opacity = '0.5';
+                        });
+
+                        // Read file
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            const avatarSrc = e.target.result;
+
+                            // Update avatars
+                            avatars.forEach(avatar => {
+                                if (avatar) {
+                                    avatar.src = avatarSrc;
+                                    avatar.style.opacity = '1';
+                                }
+                            });
+
+                            // Save to localStorage
+                            try {
+                                const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+                                currentUser.avatar = avatarSrc;
+                                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+                                const userData = JSON.parse(localStorage.getItem('userData')) || {};
+                                userData.avatar = avatarSrc;
+                                localStorage.setItem('userData', JSON.stringify(userData));
+
+                                console.log('✅ Avatar updated and saved');
+
+                                // Show success message
+                                const notification = document.createElement('div');
+                                notification.style.cssText = `
+                                    position: fixed; top: 20px; right: 20px; background: #28a745;
+                                    color: white; padding: 15px 20px; border-radius: 8px;
+                                    box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 10000;
+                                    font-family: Arial, sans-serif; font-size: 14px;
+                                `;
+                                notification.innerHTML = '✅ Profile photo updated successfully!';
+                                document.body.appendChild(notification);
+
+                                setTimeout(() => notification.remove(), 3000);
+
+                            } catch (error) {
+                                console.error('❌ Error saving avatar:', error);
+                                alert('Error saving avatar');
+                            }
+                        };
+
+                        reader.onerror = function () {
+                            alert('Error reading file');
+                            avatars.forEach(avatar => {
+                                if (avatar) avatar.style.opacity = '1';
+                            });
+                        };
+
+                        reader.readAsDataURL(file);
+                    });
+
+                    // Trigger file selection
+                    document.body.appendChild(input);
+                    input.click();
+                    document.body.removeChild(input);
+                }
+
+                // Override all avatar upload functions with the reliable one
+                window.singleAvatarUpload = reliableAvatarUpload;
+                window.avatarUpload = reliableAvatarUpload;
+                window.testAvatarUpload = reliableAvatarUpload;
+                window.reliableAvatarUpload = reliableAvatarUpload;
+
+                // Setup all avatar buttons to use the reliable function
+                const avatarButtons = document.querySelectorAll('#avatar-edit-btn, #change-photo-btn');
+                avatarButtons.forEach(button => {
+                    if (button) {
+                        // Remove existing handlers
+                        const newButton = button.cloneNode(true);
+                        button.parentNode.replaceChild(newButton, button);
+
+                        // Add single handler
+                        newButton.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            reliableAvatarUpload();
+                        });
+
+                        console.log('✅ Setup reliable handler for button:', newButton.id);
+                    }
+                });
+
+                // Make avatar images clickable
+                const avatarImages = document.querySelectorAll('#profile-avatar, #profile-form-avatar');
+                avatarImages.forEach(img => {
+                    if (img) {
+                        const newImg = img.cloneNode(true);
+                        img.parentNode.replaceChild(newImg, img);
+
+                        newImg.style.cursor = 'pointer';
+                        newImg.title = 'Click to change profile photo';
+
+                        newImg.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            reliableAvatarUpload();
+                        });
+
+                        console.log('✅ Made avatar image clickable:', newImg.id);
+                    }
+                });
+
+                console.log('✅ Inline avatar upload fix complete');
+
+            }, 2000);
+        });
+    </script>
     <div id="chatbot-widget" class="chatbot-widget">
         <!-- Chat Toggle Button -->
         <div id="chat-toggle" class="chat-toggle" onclick="toggleChat()">
@@ -504,7 +719,7 @@
             <i class="fas fa-times close-icon"></i>
             <div class="notification-dot" id="notification-dot"></div>
         </div>
-        
+
         <!-- Chat Window -->
         <div id="chat-window" class="chat-window">
             <!-- Chat Header -->
@@ -533,7 +748,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Chat Messages -->
             <div id="chat-messages" class="chat-messages">
                 <!-- Welcome Message -->
@@ -544,15 +759,15 @@
                     <div class="message-content">
                         <div class="message-header">Vastra Rent AI Assistant</div>
                         <div class="message-text">
-                            👋 I can help you manage your profile and rentals! 
-                            
+                            👋 I can help you manage your profile and rentals!
+
                             I can assist with:
                             📋 Your rental history and status
                             💳 Payment and billing questions
                             📍 Address and delivery preferences
                             👤 Account settings and preferences
                             🛒 Cart and wishlist management
-                            
+
                             What would you like help with?
                         </div>
                         <div class="quick-suggestions">
@@ -569,7 +784,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Typing Indicator -->
             <div id="typing-indicator" class="typing-indicator" style="display: none;">
                 <div class="message-avatar">
@@ -584,16 +799,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Chat Input -->
             <div class="chat-input">
                 <div class="input-container">
-                    <input 
-                        type="text" 
-                        id="message-input" 
-                        placeholder="Ask about your account, rentals, or settings..."
-                        maxlength="500"
-                    >
+                    <input type="text" id="message-input" placeholder="Ask about your account, rentals, or settings..."
+                        maxlength="500">
                     <button id="send-button" onclick="handleSendMessage()" disabled>
                         <i class="fas fa-paper-plane"></i>
                     </button>
@@ -605,6 +816,7 @@
         </div>
     </div>
 
-    <script src="js/chatbot-widget.js"></script>
+
 </body>
+
 </html>
