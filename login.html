@@ -1,219 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - VASTRA RENT</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Google OAuth API -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login-new.css">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    
+    <!-- Social Login SDKs -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
 </head>
-
 <body>
     <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
-            <div class="shape shape-5"></div>
-        </div>
+    <div class="animated-bg"></div>
+    <div class="geometric-bg"></div>
+    
+    <!-- Particle Background -->
+    <div class="particle-bg">
+        <canvas id="particleCanvas"></canvas>
     </div>
 
-    <div class="login-container">
-        <div class="login-card">
-            <!-- Header Section -->
-            <div class="login-header">
-                <div class="logo">
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="gradient-orb"></div>
+        <div class="gradient-orb"></div>
+        <div class="gradient-orb"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="login-wrapper">
+        <!-- Left Side - Branding -->
+        <div class="brand-section">
+            <div class="brand-content">
+                <div class="logo-animation">
                     <div class="logo-container">
-                        <img src="img/vrlogo.jpg" alt="VASTRA RENT Logo">
-                        <div class="logo-glow"></div>
+                        <img src="img/vrlogo.jpg" alt="VASTRA RENT Logo" class="brand-logo-img">
+                        <h1 class="brand-title">VASTRA RENT</h1>
                     </div>
-                    <h1>VASTRA RENT</h1>
                 </div>
-                <p class="welcome-text">Welcome back! Please sign in to your account</p>
+                <p class="brand-subtitle">Premium Fashion Rental Experience</p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <i class="fas fa-crown"></i>
+                        <span>Designer Collections</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Quick Delivery</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure & Trusted</span>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <!-- Form Section -->
-            <div class="auth-form">
-                <div class="form-tabs">
-                    <button class="tab-btn active" data-tab="login">Sign In</button>
-                    <button class="tab-btn" data-tab="register">Sign Up</button>
-                </div>
-
-                <!-- Login Form -->
-                <form id="loginForm" class="tab-content active" onsubmit="handleLogin(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName"><i class="fas fa-user"></i> First Name</label>
-                            <input type="text" id="firstName" required placeholder="Enter your first name">
-                            <span class="input-highlight"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName"><i class="fas fa-user"></i> Last Name</label>
-                            <input type="text" id="lastName" required placeholder="Enter your last name">
-                            <span class="input-highlight"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="gender"><i class="fas fa-venus-mars"></i> Gender</label>
-                        <div class="select-wrapper">
-                            <select id="gender" required>
-                                <option value="">Select Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <i class="fas fa-chevron-down select-arrow"></i>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="loginId"><i class="fas fa-envelope"></i> Login ID</label>
-                        <input type="text" id="loginId" required placeholder="Enter your login ID">
-                        <span class="input-highlight"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password"><i class="fas fa-lock"></i> Password</label>
-                        <div class="password-wrapper">
-                            <input type="password" id="password" required placeholder="Enter your password">
-                            <button type="button" class="password-toggle" onclick="togglePassword()">
-                                <i class="fas fa-eye" id="passwordIcon"></i>
-                            </button>
-                        </div>
-                        <span class="input-highlight"></span>
-                    </div>
-
-                    <div class="form-options">
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="rememberMe">
-                            <span class="checkmark"></span>
-                            Remember me
-                        </label>
-                        <a href="#" class="forgot-password">Forgot Password?</a>
-                    </div>
-
-                    <button type="submit" class="auth-btn">
-                        <span class="btn-text">Sign In</span>
-                        <i class="fas fa-arrow-right btn-icon"></i>
-                        <div class="btn-loader"></div>
+        <!-- Right Side - Auth Forms -->
+        <div class="auth-section">
+            <div class="auth-container">
+                <!-- Tab Switcher -->
+                <div class="tab-switcher">
+                    <div class="tab-indicator"></div>
+                    <button class="tab-btn active" data-tab="login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Sign In</span>
                     </button>
-                </form>
-
-                <!-- Register Form -->
-                <form id="registerForm" class="tab-content" onsubmit="handleRegister(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="regFirstName"><i class="fas fa-user"></i> First Name</label>
-                            <input type="text" id="regFirstName" required placeholder="Enter your first name">
-                            <span class="input-highlight"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="regLastName"><i class="fas fa-user"></i> Last Name</label>
-                            <input type="text" id="regLastName" required placeholder="Enter your last name">
-                            <span class="input-highlight"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="regEmail"><i class="fas fa-envelope"></i> Email</label>
-                        <input type="email" id="regEmail" required placeholder="Enter your email">
-                        <span class="input-highlight"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="regGender"><i class="fas fa-venus-mars"></i> Gender</label>
-                        <div class="select-wrapper">
-                            <select id="regGender" required>
-                                <option value="">Select Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <i class="fas fa-chevron-down select-arrow"></i>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="regPassword"><i class="fas fa-lock"></i> Password</label>
-                        <div class="password-wrapper">
-                            <input type="password" id="regPassword" required placeholder="Create a password">
-                            <button type="button" class="password-toggle" onclick="toggleRegPassword()">
-                                <i class="fas fa-eye" id="regPasswordIcon"></i>
-                            </button>
-                        </div>
-                        <span class="input-highlight"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="confirmPassword"><i class="fas fa-lock"></i> Confirm Password</label>
-                        <div class="password-wrapper">
-                            <input type="password" id="confirmPassword" required placeholder="Confirm your password">
-                            <button type="button" class="password-toggle" onclick="toggleConfirmPassword()">
-                                <i class="fas fa-eye" id="confirmPasswordIcon"></i>
-                            </button>
-                        </div>
-                        <span class="input-highlight"></span>
-                    </div>
-
-                    <div class="form-options">
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="agreeTerms" required>
-                            <span class="checkmark"></span>
-                            I agree to the <a href="#">Terms & Conditions</a>
-                        </label>
-                    </div>
-
-                    <button type="submit" class="auth-btn">
-                        <span class="btn-text">Create Account</span>
-                        <i class="fas fa-user-plus btn-icon"></i>
-                        <div class="btn-loader"></div>
+                    <button class="tab-btn" data-tab="register">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Sign Up</span>
                     </button>
-                </form>
-            </div>
+                </div>     
+           <!-- Login Form -->
+                <div class="form-container">
+                    <form id="loginForm" class="auth-form active" onsubmit="handleLogin(event)">
+                        <div class="form-header">
+                            <div class="form-logo">
+                                <img src="img/vrlogo.jpg" alt="VASTRA RENT" class="form-logo-img">
+                            </div>
+                            <h2>Welcome Back!</h2>
+                            <p>Sign in to access your fashion world</p>
+                        </div>
 
-            <!-- Social Login -->
-            <div class="social-login">
-                <div class="divider">
-                    <span>Or continue with</span>
-                </div>
-                <div class="social-buttons">
-                    <!-- Google Sign-In Button -->
-                    <div id="g_id_onload"
-                         data-client_id="YOUR_GOOGLE_CLIENT_ID"
-                         data-context="signin"
-                         data-ux_mode="popup"
-                         data-callback="handleGoogleSignIn"
-                         data-auto_prompt="false">
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="loginId" required placeholder=" ">
+                                <label for="loginId">Email Address</label>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input type="password" id="password" required placeholder=" ">
+                                <label for="password">Password</label>
+                                <button type="button" class="password-toggle" onclick="togglePassword()">
+                                    <i class="fas fa-eye" id="passwordIcon"></i>
+                                </button>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="rememberMe">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-text">Remember me</span>
+                            </label>
+                            <a href="#" class="forgot-link" onclick="clearRememberedUser(); return false;">Clear Data</a>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Sign In</span>
+                            <div class="btn-loader">
+                                <div class="loader-circle"></div>
+                            </div>
+                            <div class="btn-success">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </button>
+
+
+                    </form> 
+                   <!-- Register Form -->
+                    <form id="registerForm" class="auth-form" onsubmit="handleRegister(event)">
+                        <div class="form-header">
+                            <div class="form-logo">
+                                <img src="img/vrlogo.jpg" alt="VASTRA RENT" class="form-logo-img">
+                            </div>
+                            <h2>Join Vastra Rent</h2>
+                            <p>Create your fashion journey</p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user input-icon"></i>
+                                    <input type="text" id="regFirstName" required placeholder=" ">
+                                    <label for="regFirstName">First Name</label>
+                                    <div class="input-line"></div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user input-icon"></i>
+                                    <input type="text" id="regLastName" required placeholder=" ">
+                                    <label for="regLastName">Last Name</label>
+                                    <div class="input-line"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="regEmail" required placeholder=" ">
+                                <label for="regEmail">Email Address</label>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-venus-mars input-icon"></i>
+                                <select id="regGender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <label for="regGender">Gender</label>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input type="password" id="regPassword" required placeholder=" ">
+                                <label for="regPassword">Password</label>
+                                <button type="button" class="password-toggle" onclick="toggleRegPassword()">
+                                    <i class="fas fa-eye" id="regPasswordIcon"></i>
+                                </button>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input type="password" id="confirmPassword" required placeholder=" ">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <button type="button" class="password-toggle" onclick="toggleConfirmPassword()">
+                                    <i class="fas fa-eye" id="confirmPasswordIcon"></i>
+                                </button>
+                                <div class="input-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="agreeTerms" required>
+                                <span class="checkmark"></span>
+                                <span class="checkbox-text">I agree to <a href="#" class="terms-link">Terms & Conditions</a></span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Create Account</span>
+                            <div class="btn-loader">
+                                <div class="loader-circle"></div>
+                            </div>
+                            <div class="btn-success">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </button>
+                    </form>
+                </div>     
+           <!-- Social Login -->
+                <div class="social-section">
+                    <div class="divider">
+                        <span>or continue with</span>
                     </div>
-                    
-                    <button class="social-btn google" id="googleSignInBtn" onclick="socialLogin('google')">
-                        <i class="fab fa-google"></i>
-                        <span>Continue with Google</span>
-                    </button>
-                    
-                    <button class="social-btn facebook" onclick="socialLogin('facebook')">
-                        <i class="fab fa-facebook-f"></i>
-                        <span>Continue with Facebook</span>
-                    </button>
-                    
-                    <button class="social-btn apple" onclick="socialLogin('apple')">
-                        <i class="fab fa-apple"></i>
-                        <span>Continue with Apple</span>
-                    </button>
+                    <div class="social-buttons">
+                        <button class="social-btn google" onclick="socialLogin('google')">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button class="social-btn facebook" onclick="socialLogin('facebook')">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </button>
+                        <button class="social-btn apple" onclick="socialLogin('apple')">
+                            <i class="fab fa-apple"></i>
+                            <span>Apple</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Success/Error Messages -->
+    <!-- Notification -->
     <div id="notification" class="notification">
         <div class="notification-content">
             <i class="notification-icon"></i>
@@ -221,7 +261,123 @@
         </div>
     </div>
 
+    <script>
+        // Enhanced Particle Animation System
+        class ParticleSystem {
+            constructor() {
+                this.canvas = document.getElementById('particleCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.particles = [];
+                this.mouse = { x: 0, y: 0 };
+                this.init();
+            }
+
+            init() {
+                this.resize();
+                this.createParticles();
+                this.animate();
+                window.addEventListener('resize', () => this.resize());
+                window.addEventListener('mousemove', (e) => {
+                    this.mouse.x = e.clientX;
+                    this.mouse.y = e.clientY;
+                });
+            }
+
+            resize() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+                this.particles = [];
+                this.createParticles();
+            }
+
+            createParticles() {
+                const particleCount = Math.floor((this.canvas.width * this.canvas.height) / 12000);
+                for (let i = 0; i < particleCount; i++) {
+                    this.particles.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        vx: (Math.random() - 0.5) * 0.8,
+                        vy: (Math.random() - 0.5) * 0.8,
+                        size: Math.random() * 3 + 1,
+                        opacity: Math.random() * 0.6 + 0.2,
+                        color: this.getRandomColor(),
+                        pulseSpeed: Math.random() * 0.02 + 0.01,
+                        pulsePhase: Math.random() * Math.PI * 2
+                    });
+                }
+            }
+
+            getRandomColor() {
+                const colors = [
+                    'rgba(215, 109, 119, ',
+                    'rgba(58, 28, 113, ',
+                    'rgba(248, 232, 234, ',
+                    'rgba(255, 255, 255, '
+                ];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            animate() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                this.particles.forEach((particle, index) => {
+                    // Update position
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+
+                    // Bounce off walls
+                    if (particle.x < 0 || particle.x > this.canvas.width) particle.vx *= -1;
+                    if (particle.y < 0 || particle.y > this.canvas.height) particle.vy *= -1;
+
+                    // Mouse interaction
+                    const dx = this.mouse.x - particle.x;
+                    const dy = this.mouse.y - particle.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        const force = (100 - distance) / 100;
+                        particle.vx -= (dx / distance) * force * 0.01;
+                        particle.vy -= (dy / distance) * force * 0.01;
+                    }
+
+                    // Pulsing effect
+                    particle.pulsePhase += particle.pulseSpeed;
+                    const pulseSize = particle.size + Math.sin(particle.pulsePhase) * 0.5;
+                    const pulseOpacity = particle.opacity + Math.sin(particle.pulsePhase) * 0.1;
+
+                    // Draw particle
+                    this.ctx.beginPath();
+                    this.ctx.arc(particle.x, particle.y, pulseSize, 0, Math.PI * 2);
+                    this.ctx.fillStyle = particle.color + pulseOpacity + ')';
+                    this.ctx.fill();
+
+                    // Draw connections between nearby particles
+                    for (let j = index + 1; j < this.particles.length; j++) {
+                        const other = this.particles[j];
+                        const dx = particle.x - other.x;
+                        const dy = particle.y - other.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 80) {
+                            this.ctx.beginPath();
+                            this.ctx.moveTo(particle.x, particle.y);
+                            this.ctx.lineTo(other.x, other.y);
+                            this.ctx.strokeStyle = `rgba(215, 109, 119, ${0.1 * (1 - distance / 80)})`;
+                            this.ctx.lineWidth = 0.5;
+                            this.ctx.stroke();
+                        }
+                    }
+                });
+
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new ParticleSystem();
+        });
+    </script>
     <script src="js/login.js"></script>
 </body>
-
 </html>

@@ -55,6 +55,7 @@ class AIStyleAnalyzer {
         this.initializeEventListeners();
         this.clothingDatabase = this.getClothingDatabase();
         this.updateProgressIndicator();
+        this.initializeAnimations();
     }
 
     initializeEventListeners() {
@@ -93,7 +94,7 @@ class AIStyleAnalyzer {
         this.initializeFilterListeners();
         this.initializePaginationListeners();
         this.initializeViewToggle();
-        this.initializeProfileDropdown();
+        // Removed: this.initializeProfileDropdown(); - Let main.js handle this
     }
 
     initializeFilterListeners() {
@@ -154,24 +155,16 @@ class AIStyleAnalyzer {
         });
     }
 
-    initializeProfileDropdown() {
-        // Fixed: Changed from '.profile-btn' to '.profile-trigger'
-        const profileTrigger = document.querySelector('.profile-trigger');
-        const profileDropdown = document.querySelector('.profile-dropdown');
 
-        if (profileTrigger && profileDropdown) {
-            profileTrigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                profileDropdown.classList.toggle('active');
-            });
 
-            document.addEventListener('click', (e) => {
-                if (!profileDropdown.contains(e.target)) {
-                    profileDropdown.classList.remove('active');
-                }
-            });
-        }
+    initializeAnimations() {
+        // Animate gender options on page load
+        const genderOptions = document.querySelectorAll('.gender-option');
+        genderOptions.forEach((option, index) => {
+            setTimeout(() => {
+                option.classList.add('show');
+            }, index * 150); // Stagger the animations
+        });
     }
 
     handleGenderSelection(e) {
@@ -196,6 +189,14 @@ class AIStyleAnalyzer {
         if (occasionSection) {
             occasionSection.style.display = 'block';
             occasionSection.classList.add('slide-in');
+            
+            // Add show class to occasion options for fade animation
+            const occasionOptions = document.querySelectorAll('.occasion-option');
+            occasionOptions.forEach((option, index) => {
+                setTimeout(() => {
+                    option.classList.add('show');
+                }, index * 100); // Stagger the animations
+            });
             
             // Smooth scroll to occasion section
             setTimeout(() => {
@@ -231,9 +232,14 @@ class AIStyleAnalyzer {
 
         // Show upload section with smooth animation
         const uploadSection = document.querySelector('.upload-section');
-        if (uploadSection) {
+        const uploadArea = document.querySelector('.upload-area');
+        if (uploadSection && uploadArea) {
             uploadSection.style.display = 'block';
-            uploadSection.classList.add('slide-in');
+            
+            // Add show class for fade animation
+            setTimeout(() => {
+                uploadArea.classList.add('show');
+            }, 100);
 
             // Smooth scroll to upload section
             setTimeout(() => {
@@ -390,6 +396,11 @@ class AIStyleAnalyzer {
                 // Show preview
                 previewImage.src = e.target.result;
                 previewContainer.style.display = 'block';
+                
+                // Add show class for fade animation
+                setTimeout(() => {
+                    previewContainer.classList.add('show');
+                }, 100);
 
                 // Store the image data for analysis
                 this.currentImageData = e.target.result;
@@ -431,7 +442,7 @@ class AIStyleAnalyzer {
         } catch (error) {
             console.error('Analysis error:', error);
             this.hideLoadingState();
-            this.showNotification('Analysis failed. Please try again.', 'error');
+            // this.showNotification('Analysis failed. Please try again.', 'error');
         }
     }
 
@@ -559,8 +570,7 @@ class AIStyleAnalyzer {
             return this.getMockAnalysis();
 
         } catch (error) {
-            console.error('AI Analysis error:', error);
-            this.showNotification('AI analysis failed, using smart fallback analysis', 'info');
+            
             return this.getMockAnalysis();
         }
     }

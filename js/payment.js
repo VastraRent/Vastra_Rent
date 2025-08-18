@@ -1249,9 +1249,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const termsCheckbox = document.getElementById('terms');
         let isValid = true;
 
-        // Check terms acceptance
-        if (!termsCheckbox.checked) {
+        // Check terms acceptance with better user feedback
+        if (!termsCheckbox || !termsCheckbox.checked) {
             showNotification('Please accept the Terms and Conditions to proceed', 'error');
+            if (termsCheckbox) {
+                termsCheckbox.focus();
+                termsCheckbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Add visual highlight to the checkbox
+                termsCheckbox.parentElement.style.border = '2px solid #ff4444';
+                setTimeout(() => {
+                    termsCheckbox.parentElement.style.border = '';
+                }, 3000);
+            }
             isValid = false;
         }
 
@@ -1589,6 +1598,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // Validate terms acceptance
         if (!termsAccepted) {
             showNotification('Please accept the Terms and Conditions', 'error');
+            // Focus on the terms checkbox to help user
+            const termsCheckbox = document.getElementById('terms');
+            if (termsCheckbox) {
+                termsCheckbox.focus();
+                termsCheckbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
             return null;
         }
 

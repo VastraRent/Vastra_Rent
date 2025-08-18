@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Test</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+        .test-info {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h1>Chatbot Test Page</h1>
+        <p>This page tests the VastraRent chatbot in isolation.</p>
+        <p>Check the browser console for debugging information.</p>
+        
+        <button class="test-button" onclick="testChatbot()">Test Chatbot</button>
+        <button class="test-button" onclick="checkElements()">Check Elements</button>
+        <button class="test-button" onclick="manualInit()">Manual Init</button>
+        <button class="test-button" onclick="showConfig()">Show Config</button>
+    </div>
+
+    <div id="test-output"></div>
+
+    <!-- Scripts -->
+    <script src="js/env-config.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/chatbot.js"></script>
+    
+    <script>
+        function testChatbot() {
+            console.log('🧪 Testing chatbot...');
+            const output = document.getElementById('test-output');
+            output.innerHTML = '<p>Testing chatbot... Check console for details.</p>';
+            
+            if (window.vastraChatbot) {
+                output.innerHTML += '<p>✅ Chatbot instance found!</p>';
+            } else {
+                output.innerHTML += '<p>❌ Chatbot instance not found!</p>';
+            }
+        }
+        
+        function checkElements() {
+            console.log('🔍 Checking chatbot elements...');
+            const output = document.getElementById('test-output');
+            output.innerHTML = '<p>Checking elements...</p>';
+            
+            const container = document.getElementById('chatbot-container');
+            const toggle = document.getElementById('chatbot-toggle');
+            const window = document.getElementById('chatbot-window');
+            
+            output.innerHTML += `
+                <p>Container: ${container ? '✅ Found' : '❌ Not found'}</p>
+                <p>Toggle: ${toggle ? '✅ Found' : '❌ Not found'}</p>
+                <p>Window: ${window ? '✅ Found' : '❌ Not found'}</p>
+            `;
+        }
+        
+        function manualInit() {
+            console.log('🔧 Manual initialization...');
+            const output = document.getElementById('test-output');
+            output.innerHTML = '<p>Manual initialization...</p>';
+            
+            if (window.initVastraChatbot) {
+                const result = window.initVastraChatbot();
+                output.innerHTML += `<p>Manual init result: ${result ? '✅ Success' : '❌ Failed'}</p>`;
+            } else {
+                output.innerHTML += '<p>❌ Manual init function not available</p>';
+            }
+        }
+        
+        function showConfig() {
+            console.log('⚙️ Showing config...');
+            const output = document.getElementById('test-output');
+            output.innerHTML = '<p>Configuration:</p>';
+            
+            if (window.VastraRentConfig) {
+                output.innerHTML += `
+                    <p>✅ VastraRentConfig found</p>
+                    <p>Site URL: ${window.VastraRentConfig.config.SITE_URL}</p>
+                    <p>Site Name: ${window.VastraRentConfig.config.SITE_NAME}</p>
+                    <p>API Key: ${window.VastraRentConfig.config.OPENROUTER_API_KEY ? '✅ Set' : '❌ Not set'}</p>
+                `;
+            } else {
+                output.innerHTML += '<p>❌ VastraRentConfig not found</p>';
+            }
+        }
+        
+        // Auto-test on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                console.log('🔄 Auto-testing chatbot...');
+                testChatbot();
+                checkElements();
+                showConfig();
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

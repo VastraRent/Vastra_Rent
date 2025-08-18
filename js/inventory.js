@@ -2,6 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     try {
+        console.log('DOM Content Loaded - Starting inventory initialization');
+        
         // Check if inventory grid exists
         const inventoryGrid = document.querySelector('.inventory-grid');
 
@@ -9,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Inventory grid not found! Cannot initialize inventory.');
             return;
         }
+
+        console.log('Inventory grid found:', inventoryGrid);
+        console.log('Inventory data length:', inventoryData ? inventoryData.length : 'undefined');
 
         // Initialize inventory first
         initializeInventory();
@@ -1478,11 +1483,15 @@ function initializeInventory() {
 
 // Create and display inventory items
 function createInventoryItems(resetPagination = true) {
+    console.log('createInventoryItems called with resetPagination:', resetPagination);
+    
     const inventoryGrid = document.querySelector('.inventory-grid');
     if (!inventoryGrid) {
         console.error('Inventory grid not found!');
         return;
     }
+
+    console.log('Inventory grid found, proceeding with item creation');
 
     // Reset pagination if needed
     if (resetPagination) {
@@ -1492,6 +1501,7 @@ function createInventoryItems(resetPagination = true) {
 
     // Get filtered items
     const filteredItems = getFilteredItems();
+    console.log('Filtered items count:', filteredItems.length);
     paginationState.filteredItems = filteredItems;
     paginationState.totalItems = filteredItems.length;
 
@@ -1650,6 +1660,10 @@ function createInventoryItems(resetPagination = true) {
 
 // Enhanced filtering function
 function getFilteredItems() {
+    console.log('getFilteredItems called');
+    console.log('inventoryData exists:', !!inventoryData);
+    console.log('inventoryData length:', inventoryData ? inventoryData.length : 'undefined');
+    
     if (!inventoryData || inventoryData.length === 0) {
         console.error('No inventory data available!');
         return [];

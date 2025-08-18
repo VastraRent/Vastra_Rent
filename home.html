@@ -7,7 +7,7 @@
     <title>VASTRA RENT - Home</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/openrouter-chatbot.css">
+          <link rel="stylesheet" href="css/chatbot.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
@@ -288,63 +288,122 @@
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>VASTRA RENT</h3>
-                <p>Your premium clothing rental service for any occasion.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="inventory.html">Inventory</a></li>
-                    <li><a href="rental-status.html">Rental Status</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                </ul>
-            </div>
-             <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Vadodara<br>Gujrat, IN 390019</p>
-                <p><i class="fas fa-phone"></i>+91 9898471702 / +91 7984291916 / +91 9574946483</p>
-
-                <p><i class="fas fa-envelope"></i> project172305@gmail.com</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
+    <div class="footer-main">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Brand Section -->
+                <div class="footer-brand">
+                    <h2>VASTRA RENT</h2>
+                    <p>Your premier destination for luxury fashion rentals. Experience elegance without the commitment with our curated collection of designer outfits.</p>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Vadodara, Gujarat, IN 390019</li>
+                        <li><i class="fas fa-phone"></i> +91 9898471702</li>
+                        <li><i class="fas fa-envelope"></i> project172305@gmail.com</li>
+                    </ul>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="inventory.html">Our Collection</a></li>
+                        <li><a href="perfect-for-you.html">Perfect For You</a></li>
+                        <li><a href="rental-status.html">Rental Status</a></li>
+                        <li><a href="profile.html">My Profile</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Categories -->
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="inventory.html?category=Bridal">Bridal Collection</a></li>
+                        <li><a href="inventory.html?category=Party">Party Wear</a></li>
+                        <li><a href="inventory.html?category=Casual">Casual Outfits</a></li>
+                        <li><a href="inventory.html?category=Formal">Formal Wear</a></li>
+                        <li><a href="inventory.html?category=Traditional">Traditional Wear</a></li>
+                        <li><a href="inventory.html?category=Designer">Designer Collection</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Connect -->
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">Follow us for the latest fashion trends and exclusive offers!</p>
+                    <div class="social-media">
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <div class="footer-divider"></div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 VASTRA RENT. All rights reserved.</p>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="footer-bottom-content">
+            <p>&copy; 2025 Vastra Rent. All rights reserved.</p>
+            <ul class="footer-bottom-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <!-- OpenRouter Chatbot will be inserted here by JavaScript -->
 
     <script src="js/main.js"></script>
     <script src="js/shared-inventory.js"></script>
-    <script src="js/chatbot-inventory-data.js"></script>
-    <script src="js/openrouter-chatbot.js"></script>
+         <script src="js/inventory.js"></script>
+     
+     <!-- Profile Dropdown Fix -->
+     <script src="js/profile-dropdown-fix.js"></script>
+     
+     <!-- Environment Configuration -->
+     <script src="js/env-config.js"></script>
+     
+     <!-- AI Chatbot -->
+     <script src="js/website-data.js"></script>
+     <script src="js/config.js"></script>
+     <script src="js/chatbot.js"></script>
+     
+     <!-- Chatbot Debug Script -->
+     <script src="js/chatbot-debug.js"></script>
     
     <!-- Fix for any potential conflicts -->
     <script>
         // Enhanced Scroll Animation JavaScript - Fixed Version
         document.addEventListener('DOMContentLoaded', function () {
+            // Debug chatbot loading
+            console.log('🔧 Home page DOM loaded - checking chatbot...');
+            console.log('VastraRentConfig available:', !!window.VastraRentConfig);
+            console.log('VastraChatbot instance:', !!window.vastraChatbot);
+            
             // Fix any potential z-index conflicts with chatbot
             setTimeout(() => {
-                const chatbot = document.querySelector('.openrouter-chatbot');
+                const chatbot = document.querySelector('.chatbot-container');
                 if (chatbot) {
+                    console.log('✅ Chatbot container found on home page');
                     chatbot.style.zIndex = '10001';
+                } else {
+                    console.error('❌ Chatbot container not found on home page');
                 }
-                if (window.chatbotInstance) {
-                    console.log('Chatbot loaded successfully on home page');
+                
+                if (window.vastraChatbot) {
+                    console.log('✅ Chatbot instance found on home page');
+                } else {
+                    console.error('❌ Chatbot instance not found on home page');
                 }
-            }, 500);
+            }, 1000);
             // Check for Intersection Observer support
             if (!('IntersectionObserver' in window)) {
                 // Fallback for older browsers
@@ -1166,6 +1225,11 @@
         `;
         document.head.appendChild(sparkleStyle);
     </script>
+    
+    <!-- AI Chatbot Widget Container -->
+    <div id="vastra-chatbot" class="chatbot-container">
+        <!-- Chatbot will be initialized here by chatbot.js -->
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,4 @@
+id,firstName,lastName,email,password,gender,joinDate
+1,John,Doe,john@example.com,password123,male,2024-01-15
+2,Jane,Smith,jane@example.com,password123,female,2024-01-16
+3,Admin,User,admin@example.com,admin123,other,2024-01-17

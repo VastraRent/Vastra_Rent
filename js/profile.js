@@ -1018,6 +1018,131 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
 
+            // Add event listeners for view details buttons
+            document.querySelectorAll('.view-cart-details').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const index = parseInt(this.dataset.index);
+                    const item = cart[index];
+                    console.log('Cart item clicked for details:', item);
+                    
+                    // Show loading state
+                    const originalCursor = this.style.cursor;
+                    this.style.cursor = 'wait';
+                    
+                    try {
+                        // Store item data for product details page
+                        const itemForDetails = {
+                            id: item.productId || item.id || `cart_${index}`,
+                            productId: item.productId || item.id,
+                            name: item.productName || item.name,
+                            productName: item.productName || item.name,
+                            image: item.productImage || item.image,
+                            productImage: item.productImage || item.image,
+                            price: item.rentalFee || item.rentalPrice || item.price,
+                            rentalPrice: item.rentalFee || item.rentalPrice,
+                            size: item.size,
+                            category: item.category,
+                            description: item.description,
+                            // Include rental-specific data
+                            startDate: item.startDate,
+                            endDate: item.endDate,
+                            days: item.days,
+                            quantity: item.quantity,
+                            totalCost: item.totalCost
+                        };
+                        
+                        localStorage.setItem('selectedItem', JSON.stringify(itemForDetails));
+                        
+                        // Add visual feedback
+                        this.style.transform = 'scale(0.98)';
+                        
+                        // Navigate to product details
+                        setTimeout(() => {
+                            window.location.href = `product-details.html?id=${itemForDetails.id}`;
+                        }, 200);
+                        
+                    } catch (error) {
+                        console.error('Error viewing cart item details:', error);
+                        this.style.cursor = originalCursor;
+                        showNotification('Unable to view item details', 'error');
+                    }
+                });
+            });
+
+            // Add click functionality to cart items for viewing details
+            document.querySelectorAll('.cart-item').forEach((cartItem, index) => {
+                // Make cart item clickable (excluding action buttons)
+                cartItem.style.cursor = 'pointer';
+                
+                cartItem.addEventListener('click', function(e) {
+                    // Don't trigger if clicking on action buttons
+                    if (e.target.closest('.cart-item-actions') || 
+                        e.target.closest('.cart-item-remove') || 
+                        e.target.closest('.edit-cart-item') ||
+                        e.target.closest('.view-cart-details')) {
+                        return;
+                    }
+                    
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const item = cart[index];
+                    console.log('Cart item clicked for details:', item);
+                    
+                    // Show loading state
+                    const originalCursor = this.style.cursor;
+                    this.style.cursor = 'wait';
+                    
+                    try {
+                        // Store item data for product details page
+                        const itemForDetails = {
+                            id: item.productId || item.id || `cart_${index}`,
+                            productId: item.productId || item.id,
+                            name: item.productName || item.name,
+                            productName: item.productName || item.name,
+                            image: item.productImage || item.image,
+                            productImage: item.productImage || item.image,
+                            price: item.rentalFee || item.rentalPrice || item.price,
+                            rentalPrice: item.rentalFee || item.rentalPrice,
+                            size: item.size,
+                            category: item.category,
+                            description: item.description,
+                            // Include rental-specific data
+                            startDate: item.startDate,
+                            endDate: item.endDate,
+                            days: item.days,
+                            quantity: item.quantity,
+                            totalCost: item.totalCost
+                        };
+                        
+                        localStorage.setItem('selectedItem', JSON.stringify(itemForDetails));
+                        
+                        // Add visual feedback
+                        this.style.transform = 'scale(0.98)';
+                        
+                        // Navigate to product details
+                        setTimeout(() => {
+                            window.location.href = `product-details.html?id=${itemForDetails.id}`;
+                        }, 200);
+                        
+                    } catch (error) {
+                        console.error('Error viewing cart item details:', error);
+                        this.style.cursor = originalCursor;
+                        showNotification('Unable to view item details', 'error');
+                    }
+                });
+                
+                // Add hover effect for better UX
+                cartItem.addEventListener('mouseenter', function() {
+                    if (!this.style.cursor.includes('wait')) {
+                        this.style.cursor = 'pointer';
+                    }
+                });
+            });
+
             // Clear cart button
             if (clearCartBtn) {
                 clearCartBtn.onclick = function () {

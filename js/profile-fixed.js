@@ -526,24 +526,74 @@ function loadCartItems() {
                 animateOptimizedButtonClick(this);
 
                 try {
-                    // Store checkout data
-                    const checkoutData = {
-                        items: cart,
-                        totalCost: total,
-                        subtotal: subtotal,
-                        protection: protection,
-                        delivery: delivery,
-                        timestamp: new Date().toISOString()
+                    // Get the first item from cart for checkout
+                    const firstItem = cart[0];
+                    const productId = firstItem.id || firstItem.productId || 'default';
+                    
+                    // Prepare the item data for product-details page
+                    const selectedItem = {
+                        id: productId,
+                        name: firstItem.productName || firstItem.name || 'Unknown Item',
+                        image: firstItem.productImage || firstItem.image || 'img/placeholder.jpg',
+                        images: [firstItem.productImage || firstItem.image || 'img/placeholder.jpg'],
+                        rentalPrice: firstItem.rentalFee || firstItem.rentalPrice || 0,
+                        weeklyPrice: firstItem.rentalFee || firstItem.rentalPrice || 0,
+                        retailPrice: firstItem.retailPrice || ((firstItem.rentalFee || firstItem.rentalPrice || 0) * 10),
+                        category: firstItem.category || 'Fashion',
+                        gender: firstItem.gender || 'Unisex',
+                        brand: firstItem.brand || 'Designer',
+                        material: firstItem.material || 'Premium',
+                        color: firstItem.color || 'Multi',
+                        condition: firstItem.condition || 'Excellent',
+                        available: true,
+                        rating: firstItem.rating || 4.5,
+                        reviewCount: firstItem.reviewCount || 20,
+                        description: firstItem.description || 'Premium quality rental item',
+                        // Pre-fill the rental data from cart
+                        preSelectedSize: firstItem.size,
+                        preSelectedStartDate: firstItem.startDate,
+                        preSelectedEndDate: firstItem.endDate,
+                        preSelectedQuantity: firstItem.quantity || 1,
+                        fromCart: true,
+                        cartIndex: 0,
+                        totalCost: firstItem.totalCost
                     };
 
-                    localStorage.setItem('checkoutCart', JSON.stringify(cart));
-                    localStorage.setItem('currentRental', JSON.stringify(checkoutData));
-
-                    console.log('Checkout data stored, redirecting to payment.html');
+                    // Store the item data for product-details page
+                    localStorage.setItem('selectedItem', JSON.stringify(selectedItem));
+                    sessionStorage.setItem('selectedItem', JSON.stringify(selectedItem));
                     
-                    // Redirect to payment page
+                    // Also store as currentRental for payment processing
+                    const rentalData = {
+                        id: productId,
+                        productName: selectedItem.name,
+                        productImage: selectedItem.image,
+                        size: firstItem.size,
+                        startDate: firstItem.startDate,
+                        endDate: firstItem.endDate,
+                        quantity: firstItem.quantity || 1,
+                        days: firstItem.days || 1,
+                        rentalFee: firstItem.rentalFee || firstItem.rentalPrice || 0,
+                        totalCost: firstItem.totalCost,
+                        specialRequests: firstItem.specialRequests || '',
+                        createdAt: new Date().toISOString(),
+                        source: 'cart-checkout',
+                        paymentStatus: 'pending'
+                    };
+                    
+                    localStorage.setItem('currentRental', JSON.stringify(rentalData));
+                    sessionStorage.setItem('currentRental', JSON.stringify(rentalData));
+
+                    console.log('Checkout data prepared for product-details page:', selectedItem);
+                    
+                    // Show notification for multiple items
+                    if (cart.length > 1) {
+                        showNotification(`Processing first item. You have ${cart.length - 1} more items in cart.`, 'info');
+                    }
+                    
+                    // Redirect to product-details page with the item ID
                     setTimeout(() => {
-                        window.location.href = 'payment.html';
+                        window.location.href = `product-details.html?id=${productId}`;
                     }, 500);
                     
                 } catch (error) {

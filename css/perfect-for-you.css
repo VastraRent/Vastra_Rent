@@ -377,7 +377,6 @@
 .upload-section {
     margin-bottom: 60px;
     display: none;
-    animation: slideInRight 0.8s ease-out forwards;
 }
 
 .gender-selection-section h2, .occasion-selection-section h2 {
@@ -418,7 +417,15 @@
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: scaleIn 0.6s ease-out;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.gender-option.show,
+.occasion-option.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .gender-option:nth-child(1) { animation-delay: 0.1s; }
@@ -530,6 +537,14 @@
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.upload-area.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .upload-area::before {
@@ -664,8 +679,15 @@
     padding: 40px;
     box-shadow: 0 20px 60px rgba(58, 28, 113, 0.15);
     display: none;
-    animation: bounceIn 0.8s ease-out;
     border: 1px solid rgba(215, 109, 119, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.preview-container.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .preview-header {
