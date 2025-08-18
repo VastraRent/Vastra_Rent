@@ -72,12 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', function(e) {
             console.log('✅ Menu item clicked:', this.textContent.trim());
             
-            // Removed logout button override - let main.js handle logout functionality
-            // if (this.id === 'logout-btn') {
-            //     e.preventDefault();
-            //     console.log('🔧 Logout button clicked');
-            //     alert('Logout functionality coming soon!');
-            // }
+        
         });
     });
     
